@@ -26,7 +26,7 @@ Luckily **WUZZLES EAT CANDY**, but are very picky about which flavors of candy t
 
 ---
 
-#It looks like we need to build a CANDY machine to feed wuzzles CANDY!
+# It looks like we need to build a CANDY machine to feed wuzzles CANDY!
 
 ---
 
