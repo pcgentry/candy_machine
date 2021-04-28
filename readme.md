@@ -1,5 +1,5 @@
 # The CANDY Machine
-A **reinforcement learning system** to solve an economic relationship between wuzzles and CANDY. I created a whimsical environment to develop the system, but this would be useful in a number of scenarios such as **adoption services, dating, job matching, a recommendation system for perishable goods**, or other similar scenarios. Wuzzles are just more fun and I'm off the clock.
+A **reinforcement learning system** to solve an economic relationship between wuzzles and CANDY. I created a whimsical environment to develop the system, but this would be useful in a number of scenarios such as **adoption services, job matching, a recommendation system for perishable goods**, ***or other similar scenarios***. Wuzzles are just more fun and I'm off the clock.
 
 # The Problem Set
 
