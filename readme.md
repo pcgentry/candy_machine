@@ -5,7 +5,7 @@ A **reinforcement learning system** to solve an economic relationship between wu
 
 The planet Wuzzlopolis has **two** **big** **problems**.
 
-# Problem 1: The planet is full of hungry wuzzles. 
+## Problem 1: The planet is full of hungry wuzzles. 
 
 Traditionally the **Kind King** of Wuzzlopolis would feed each wuzzle by hand based on how much he liked each wuzzle and what the Kind King thought they would like. 
 
@@ -19,7 +19,7 @@ Obviously we must build a machine to do his job.
 
 We also kind of low-key hope that it is better at feeding Wuzzles than the Kind King. If our machine is smart enough, it will be able to track every wuzzles preferences individually and keep them fed for as long as possible before the food supply runs out.
 
-# Problem 2: Wuzzlopolis is full of uneaten CANDY.
+## Problem 2: Wuzzlopolis is full of uneaten CANDY.
 
 One interesting thing about CANDY on Wuzzlopolis is that it is alive. 
 
@@ -46,17 +46,8 @@ If our machine is smart enough, it will track CANDY individuals and keep them al
 - Every wuzzle owns a lunchbox that can have up to 20 CANDY. Our machine will load the lunchbox from the cook book.
 - When we say a wuzzle eats a candy, it actually just **licks** it and tosses it back into the wild. That wuzzle will never lick it again, but other wuzzles can lick the same candy.
 
----
 
-# Development Setup
-
-Create the virtual environment:
-
-	source bin/activate
-	pip install -r requirements.txt
-
-
-# About the CANDY machine.
+# More about the CANDY machine.
 
 - Each wuzzle has a cookbook that is a collection of lists. These are effectively **queues** of CANDY individuals that could potentially be licked.
 - Our machine will pick individuals from those queues to be **added** to this particular wuzzles lunchbox.
@@ -68,7 +59,16 @@ Create the virtual environment:
 	- A CANDY makes it through the day, or possibly a score for CANDY each day
 - We should probably build a few machines and compare them with each other. So it should be fairly **modular**.
 
+---
 
+# Development Setup
+
+Create the virtual environment:
+
+	source bin/activate
+	pip install -r requirements.txt
+	
+	
 ***Future Considerations***:
 
 	What if CANDY was actually wuzzles in disguise?
