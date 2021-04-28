@@ -1,3 +1,5 @@
+""" Testing Wuzzles. """
+
 def test_wuzzle_has_name(RandomWuzzle):
     assert RandomWuzzle.name, "Wuzzle has not named themself."
 
@@ -10,3 +12,8 @@ def test_wuzzle_init_flavor_preferences(RandomWuzzle):
 
         assert isinstance(key, str), "The first part of a Wuzzle pref should be the flavor"
         assert isinstance(value, float), "The second part of a Wuzzle pref should be the likelihood of eating"
+
+@pytest.mark.parametrize("dislike", ['apple', 'toenail', 'earwax', 'green tea', 'peach', 'tarball', 'toe fuzz'])
+def test_wuzzle_favorite(RandomWuzzle, dislike):
+    RandomWuzzle.dislike = dislike
+    assert RandomWuzzle.dislike not in RandomWuzzle.favorites
