@@ -63,15 +63,13 @@ If our machine is smart enough, it will track CANDY individuals and keep them al
 
 # Development Setup
 
-The virtual environment was created with this, but you shouldn't have to run it:
+The virtual environment was created with this, but you shouldn't have to run it. It was done using Python 3.8.6 installed via pyenv:
 
-	source bin/activate
-	pip install --use-deprecated=legacy-resolver -r requirements.txt
+	python -m virtualenv .
 	
 Create the virtual environment:
 
 	source bin/activate
-	pip install --use-deprecated=legacy-resolver -r requirements.txt
 	pip install -r requirements.txt
 	
 	
