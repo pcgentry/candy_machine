@@ -17,7 +17,7 @@ Unfortunately, **THE Kind King HAS DIED SUDDENLY** and there is nobody to replac
 
 Obviously we must build a machine to do his job.
 
-We also kind of low-key hope that it is better at feeding Wuzzles than the Kind King. If our machine is smart enough, it will be able to track every wuzzles preferences individually and keep them fed for as long as possible before the food supply runs out.
+We also kinda low-key hope that our machine is better at feeding Wuzzles than the Kind King. If our machine is smart enough, it will be able to track wuzzle preferences individually and keep them fed for as long as possible before the food supply runs out.
 
 ## Problem 2: Wuzzlopolis is full of uneaten CANDY.
 
