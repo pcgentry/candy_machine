@@ -72,7 +72,13 @@ Create the virtual environment:
 	source bin/activate
 	pip install -r requirements.txt
 	
+# Running Tests
+
+Because we are working in a virtual env, pytest will need to be invoked with:
+
+	python -m pytest
 	
+
 ***Future Considerations***:
 
 	What if CANDY was actually wuzzles in disguise?
