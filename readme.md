@@ -48,3 +48,10 @@ If our machine is smart enough, it will track CANDY individuals and keep them al
 - Every wuzzle has his own CANDY cookbook with lists sorted by CANDY breed where CANDY individuals can be listed. Our machine will pick CANDY individuals based on what CANDY individuals are on each CANDY list.
 - Every wuzzle owns a lunchbox that can have up to 20 CANDY. Our machine will load the lunchbox from the cook book.
 - When we say a wuzzle eats a candy, it actually just **licks** it and tosses it back into the wild. That wuzzle will never lick it again, but other wuzzles can lick the same candy.
+
+# Development Setup
+
+We are using a virtual environment, so:
+
+	source bin/activate
+	pip install -r requirements.txt
