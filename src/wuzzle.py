@@ -1,6 +1,7 @@
 from faker import Faker
 import numpy as np
 import random
+from config import FLAVORS
 
 class Wuzzle():
     '''
@@ -8,14 +9,20 @@ class Wuzzle():
     '''
     def __init__(self):
       self.fake = Faker()
-      self.flavors = ['apple', 'toenail', 'earwax', 'green tea', 'peach', 'tarball', 'toe fuzz']
+      self.flavors = FLAVORS
       self.name = self.fake.name()
       self.generate_flavor_preferences()
-      self.dislikes = None
+      # self.dislikes = None
+
 
     def generate_flavor_preferences(self):
-      self.flavor_preferences = {random.choice(self.flavors): .6}
+      preferences = []
+      num_preferences = random.randint(1, len(self.flavors))
 
-    @classmethod
-    def favorites(self):
-      return self.flavors - self.dislikes
+      for flavor in np.random.choice(self.flavors, replace=False, size=num_preferences):
+        self.flavor_preferences = {flavor : random.uniform(0, 1)}
+
+
+    # # @classmethod
+    # def favorites(self):
+    #   return random.choice(self.flavors)
