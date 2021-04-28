@@ -20,9 +20,12 @@ We also kind of low-key hope that it is better at feeding Wuzzles than the Kind 
 
 One interesting thing about CANDY on Wuzzlopolis is that it is alive. 
 
-CANDY individuals also like to be eaten. In fact they need to be eaten because when they aren't, CANDY gets very **depressed and moody** and doesn't enjoy life very much. It also lays eggs in wuzzle poop and if a breed of CANDY isn't eaten enough, it eventually dies off.
+CANDY individuals also like to be eaten. In fact they need to be eaten because when they aren't, CANDY gets very **depressed and moody** and doesn't enjoy life very much. It also dies after a few days.
 
-CANDY comes in many flavors, ranging from **[ 'apple' : 'earwax' ]** and sometimes a single CANDY can have multiple flavors.
+<!--CANDY might lay eggs in wuzzle poop and if a breed of CANDY isn't eaten enough, it eventually dies off. We're not sure about that yet.
+-->
+
+CANDY comes in many flavors, ranging from **[ 'apple' : 'earwax' ]** and a single CANDY can have multiple flavors (but not always).
 
 Luckily **WUZZLES EAT CANDY**, but are very picky about which flavors of candy they eat.
 
@@ -32,7 +35,7 @@ If our machine is smart enough, it will track CANDY individuals and keep them al
 
 ---
 
-# Lwt us build a CANDY machine to feed wuzzles CANDY!
+# Let us build a CANDY machine to feed wuzzles CANDY!
 
 ---
 
