@@ -1,9 +1,9 @@
 # CANDY Machine
-A reinforcement-based algorithm to solve an economic relationship between wuzzles and CANDY.
+A **reinforcement learning system** to solve an economic relationship between wuzzles and CANDY. I created a whimsical environment to develop the system, but this would be useful in a number of scenarios such as **adoption services, dating, job matching, a recommendation system for perishable goods**, or another similar scenarios. Wuzzles are just more fun and I'm off the clock.
 
 # The Problem Set
 
-The planet Wuzzlopolis has two big problems.
+The planet Wuzzlopolis has **two** **big** **problems**.
 
 # Problem 1: The planet is full of hungry wuzzles. 
 
