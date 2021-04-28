@@ -1,3 +1,6 @@
+# CANDY Machine
+A reinforcement-based algorithm to solve an economic relationship between wuzzles and CANDY.
+
 # The Problem Set
 
 The planet Wuzzlopolis has two big problems.
