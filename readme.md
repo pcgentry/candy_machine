@@ -63,9 +63,15 @@ If our machine is smart enough, it will track CANDY individuals and keep them al
 
 # Development Setup
 
+The virtual environment was created with this, but you shouldn't have to run it:
+
+	source bin/activate
+	pip install --use-deprecated=legacy-resolver -r requirements.txt
+	
 Create the virtual environment:
 
 	source bin/activate
+	pip install --use-deprecated=legacy-resolver -r requirements.txt
 	pip install -r requirements.txt
 	
 	
