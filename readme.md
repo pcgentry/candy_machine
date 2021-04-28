@@ -6,13 +6,15 @@ The planet Wuzzlopolis has two big problems.
 
 Traditionally the Kind King of Wuzzlopolis would feed each wuzzle by hand based on how much he liked each wuzzle and what the Kind King thought they would like. 
 
-This approach wasn't the best, because the Kind King was only one Wuzzle and had only one perspective. One wuzzle can only do so much, and he could never pay attention to every wuzzle and what they liked to eat... he had to make a lot of generalizations. 
+This approach wasn't the best, because the Kind King was only one Wuzzle and had only one perspective. One wuzzle can only do so much, and he could never pay attention to every wuzzle and what they liked to eat... he had to make a lot of generalizations.
 
 Still, Wuzzlopolis did O.K. under the Kind King.
 
-Unfortunately, **THE Kind King HAS DIED SUDDENLY** and there is nobody to replace them. There is nobody that can replace him, and we must build a machine to do his job.
+Unfortunately, **THE Kind King HAS DIED SUDDENLY** and there is nobody to replace them. 
 
-We kind of low-key hope that it is even better at feeding Wuzzles than the Kind King.
+Obviously we must build a machine to do his job.
+
+We also kind of low-key hope that it is better at feeding Wuzzles than the Kind King. If our machine is smart enough, it will be able to track every wuzzles preferences individually and keep them fed for as long as possible before the food supply runs out.
 
 # Problem 2: Wuzzlopolis is full of uneaten CANDY.
 
@@ -24,9 +26,13 @@ CANDY comes in many flavors, ranging from **[ 'apple' : 'earwax' ]** and sometim
 
 Luckily **WUZZLES EAT CANDY**, but are very picky about which flavors of candy they eat.
 
+Obviously we must build a machine to distribute CANDY individuals to the wuzzles.
+
+If our machine is smart enough, it will track CANDY individuals and keep them alive as long as possible.
+
 ---
 
-# It looks like we need to build a CANDY machine to feed wuzzles CANDY!
+# Lwt us build a CANDY machine to feed wuzzles CANDY!
 
 ---
 
