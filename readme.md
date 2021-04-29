@@ -84,4 +84,5 @@ Because we are working in a virtual env, pytest will need to be invoked with:
 	What if CANDY was actually wuzzles in disguise?
 	What if wuzzles and CANDY can have **babies**?
 	CANDY might lay eggs in wuzzle poop. We're not sure about that yet.
+	What if a wuzzle can form a psychic chat-bond with a CANDY, and as long as it persists, the effects are mutually beneficial?
 
