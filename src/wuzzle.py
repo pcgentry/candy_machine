@@ -1,16 +1,16 @@
-from faker import Faker
-import numpy as np
 import random
-from config import FLAVORS
+from src.config import FLAVORS, FAKER
+import uuid
+import numpy as np
 
 class Wuzzle():
     '''
     Creates a wuzzle critter to eat CANDY.
     '''
     def __init__(self):
-      self.fake = Faker()
+      self.uuid = uuid.uuid1()
       self.flavors = FLAVORS
-      self.name = self.fake.name()
+      self.name = FAKER.name()
       self.generate_flavor_preferences()
       # self.dislikes = None
 
