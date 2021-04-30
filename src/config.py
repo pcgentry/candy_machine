@@ -1,5 +1,6 @@
 import numpy as np
 import uuid
+import faker
 from faker import Faker
 
 FAKER = Faker()  ## Object constant? Is that a thing?
