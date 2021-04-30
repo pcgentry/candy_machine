@@ -1,9 +1,8 @@
-*/*/*/__pycache__/*
-src/tests/__pycache__/
-
 lib/*
 bin/*
 etc/*
+__pycache__/*
+**/__pycache__/*
 
 *.pyc
 **/*.pyc
