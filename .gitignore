@@ -1,6 +1,7 @@
-lib/*
-__pycache__
-*.pyc
 *__pycache__*
+
+lib/*
 bin/*
 etc/*
+
+*.pyc
