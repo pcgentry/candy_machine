@@ -26,7 +26,3 @@ class Wuzzle():
       for flavor in np.random.choice(self.flavors, replace=False, size=num_preferences):
         self.flavor_preferences = {flavor : random.uniform(0, 1)}
 
-
-    # # @classmethod
-    # def favorites(self):
-    #   return random.choice(self.flavors)

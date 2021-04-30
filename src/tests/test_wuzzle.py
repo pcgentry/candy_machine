@@ -18,8 +18,4 @@ def test_wuzzle_init_flavor_preferences(RandomWuzzle):
         assert isinstance(key, str), "The first part of a Wuzzle pref should be the flavor"
         assert isinstance(value, float), "The second part of a Wuzzle pref should be the likelihood of eating"
 
-# @pytest.mark.parametrize("dislike", ['apple', 'toenail', 'earwax', 'green tea', 'peach', 'tarball', 'toe fuzz'])
-# def test_wuzzle_favorite(RandomWuzzle, dislike):
-#     RandomWuzzle.dislike = dislike
-#     # breakpoint()
-#     assert RandomWuzzle.dislike not in RandomWuzzle.favorites()
+
