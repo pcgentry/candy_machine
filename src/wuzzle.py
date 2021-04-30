@@ -15,6 +15,7 @@ class Wuzzle():
       self.flavors = FLAVORS
       self.name = FAKER.name()
       self.generate_flavor_preferences()
+      self.hunger = 0 
       # self.dislikes = None
 
 
