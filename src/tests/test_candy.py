@@ -1,4 +1,6 @@
 """ Testing Candy """
+from random import Random
+import uuid
 import pytest
 
 def test_candy_has_name(RandomCandy):
@@ -7,6 +9,7 @@ def test_candy_has_name(RandomCandy):
 
 def test_candy_init(RandomCandy):
     assert RandomCandy.flavors, "Candy has no flavor."
+    assert RandomCandy.uuid 
     assert isinstance(RandomCandy.flavors, dict), "Somethings wrong. CANDY flavor preferences are not a Dictionary"
     assert len(RandomCandy.flavors) > 0, "CANDY has zero flavor."
 

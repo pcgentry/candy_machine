@@ -4,7 +4,11 @@ import random
 
 
 class Flavors():
-  ''' This Class handles common flavor functionality. '''
+  ''' 
+  Flavors in this context are actually representations of outputs from different matching models. Each Wuzzle has a queue for each flavor, and 
+  wuzzles will like flavors with different probabilities. It is the job of the Candy Machine to figure these out and feed each wuzzle an ideal 
+  mix of flavors.
+  '''
 
   def __init__(self) -> None:
       self.flavors = FLAVORS

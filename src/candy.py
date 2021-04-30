@@ -8,11 +8,17 @@ from src.flavors import Flavors
 
 flavors = Flavors()
 
-
 class Candy():
+  '''
+  A Candy is an individual piece of Candy. They are fed to wuzzles and have different flavors. In the grand scheme of things, CANDY represents
+  a match that a Wuzzle might like. In the non-metaphorical sense, a CANDY might be a particular movie, such as The Princess Bride, and its 
+  flavor corresponds to whatever recommender alg. it was recommended by. NOTE: flavor does NOT represent individual features in this metaphor.
+  '''
 
   def __init__(self) -> None:
-    self.name = FAKER.name()
+    # We reverse the string here to differentiate Wuzzle names from CANDY names
+    self.name = FAKER.name()[::-1]
+    self.uuid = uuid.uuid1
     self.num_flavors = random.randint(1, len(flavors.flavors))
     self.flavors = flavors.make_flavors(self.num_flavors)
 
