@@ -1,4 +1,3 @@
-from src.flavors import Flavors
 from src.candy import Candy
 from src.wuzzle import Wuzzle
 from src.machine import Machine
@@ -12,7 +11,10 @@ class World():
   def __init__(self) -> None:
     self.initial_wuzzle_population = 10
     self.initial_candy_population = 10
+
+
     self.hunger_rate = .3
+    self.machine = Machine()
     self.generate_wuzzles()
     self.generate_candies()
 

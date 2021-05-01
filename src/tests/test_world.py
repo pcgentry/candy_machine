@@ -8,3 +8,4 @@ def test_world_init(RandomWorld):
   assert isinstance(RandomWorld.hunger_rate, float)
   assert len(RandomWorld.wuzzles) > 0
   assert len(RandomWorld.candies) > 0
+  assert RandomWorld.machine

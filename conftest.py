@@ -3,6 +3,8 @@ from src.candy import Candy
 from src.flavors import Flavors
 from src.world import World
 from src.machine import Machine
+from src.cookbook import Cookbook
+
 import pytest
 
 
@@ -25,3 +27,7 @@ def RandomFlavors():
 @pytest.fixture()
 def RandomMachine():
   return Machine()
+
+@pytest.fixture()
+def TestCookbook():
+  return Cookbook()

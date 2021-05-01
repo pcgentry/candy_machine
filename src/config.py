@@ -6,3 +6,5 @@ from faker import Faker
 FAKER = Faker()  ## Object constant? Is that a thing?
 FLAVORS = np.array(['apple', 'toenail', 'earwax', 'green tea', 'peach', 'tarball', 'toe fuzz'])
 
+cookbook_page_length = 3
+cookbook_num_pages = 2

@@ -1,7 +1,11 @@
 import random
-from src.config import FLAVORS, FAKER
 import uuid
+
 import numpy as np
+
+from src.config import FLAVORS, FAKER
+from src.cookbook import Cookbook
+
 
 class Wuzzle():
     '''
@@ -14,9 +18,10 @@ class Wuzzle():
       self.uuid = uuid.uuid1()
       self.flavors = FLAVORS
       self.name = FAKER.name()
-      self.generate_flavor_preferences()
+      self.menu = []
       self.hunger = 0 
-      # self.dislikes = None
+      self.generate_flavor_preferences()
+      self.generate_cookbooks()
 
 
     def generate_flavor_preferences(self):
@@ -25,4 +30,11 @@ class Wuzzle():
 
       for flavor in np.random.choice(self.flavors, replace=False, size=num_preferences):
         self.flavor_preferences = {flavor : random.uniform(0, 1)}
+
+    def generate_cookbooks(self):
+      self.cookbooks = []
+      
+      for flavor in self.flavor_preferences:
+        self.cookbooks.append(Cookbook(flavor))
+
 
