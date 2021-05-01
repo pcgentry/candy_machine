@@ -26,7 +26,15 @@ def test_wuzzle_cookbook_init(RandomWuzzle):
     assert isinstance(RandomWuzzle.cookbooks, list)
     assert len(RandomWuzzle.cookbooks) == len(RandomWuzzle.flavor_preferences)
 
-def test_wuzzle_find_candies(RandomWuzzle):
-    candies = [Candy(), Candy(), Candy()]    
-    assert isinstance(RandomWuzzle.find_candies(candies), list)
+def test_wuzzle_find_candies(RandomWuzzle, CandySet):
+    assert isinstance(RandomWuzzle.find_candies(CandySet), list)
+
+def test_wuzzle_generate_cookbooks(RandomWuzzle, CandySet):
+    Test_Wuz = RandomWuzzle
+    Test_Wuz.find_candies(CandySet)
+    Test_Wuz.generate_cookbooks()
+    assert isinstance(Test_Wuz.cookbooks, list)
+
+    Test_Wuz.populate_cookbooks(CandySet)
+    assert isinstance(Test_Wuz.cookbooks[0].flavor, str)
 

@@ -1,4 +1,5 @@
 import random
+from typing import List
 import uuid
 
 import numpy as np
@@ -22,6 +23,7 @@ class Wuzzle():
       self.generate_cookbooks()
       self.licked_candy_ids = []
       self.potential_candy_ids = []
+      self.menu = []
 
 
     def generate_flavor_preferences(self):
@@ -40,7 +42,18 @@ class Wuzzle():
         self.cookbooks.append(Cookbook(flavor))
 
 
-    def find_candies(self, candies):
+    def populate_cookbooks(self, world_candies):
+      for cookbook in self.cookbooks:
+        current_flavor = cookbook.flavor
+
+        for candy in world_candies:
+          
+          if candy.uuid in self.potential_candy_ids:
+            if current_flavor in candy.flavors:
+              cookbook.candy_ids.append(candy.uuid)
+
+
+    def find_candies(self, candies) -> List:
       ''' get all candies that this Wuzzle can lick
       
       Keyword Arguments:
@@ -58,19 +71,7 @@ class Wuzzle():
       return self.potential_candy_ids
 
 
-
-    # def populate_menu(self):
-    #   ''' populate the menu using cookbooks and flavors '''
-    #   raise NotImplementedError
-
-
-    # def can_lick_candy(candy):
-    #   ''' Determine if a Candy is eligible for licking. '''
-
-    #   raise NotImplementedError
-
-
-    def lick_candy(candy):
+    def lick_candy(self, candy):
       ''' Licking a candy means we have considered the Candy and decided to lick it. 
       
       Append to the licked list.'''

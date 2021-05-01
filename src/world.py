@@ -20,6 +20,7 @@ class World():
 
     for wuzzle in self.wuzzles:
       wuzzle.find_candies(self.candies)
+      wuzzle.generate_cookbooks()
 
 
   def generate_wuzzles(self):

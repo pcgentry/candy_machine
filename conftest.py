@@ -31,3 +31,7 @@ def RandomMachine():
 @pytest.fixture()
 def TestCookbook():
   return Cookbook()
+
+@pytest.fixture()
+def CandySet():
+  return [Candy(), Candy(), Candy()]
