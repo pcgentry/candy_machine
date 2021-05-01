@@ -2,7 +2,7 @@ from src.config import FAKER
 import uuid
 import random
 
-from src.config import FAKER
+from src.config import FAKER, WORLD
 from src.flavors import Flavors
 
 

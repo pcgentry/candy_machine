@@ -1,4 +1,4 @@
-from src.config import FLAVORS
+from src.config import WORLD
 import numpy as np
 import random
 
@@ -11,7 +11,7 @@ class Flavors():
   '''
 
   def __init__(self) -> None:
-      self.flavors = FLAVORS
+      self.flavors = WORLD["flavors"]
   
 
   def make_flavors(self, number_of_flavors=1):
