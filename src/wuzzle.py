@@ -26,6 +26,9 @@ class Wuzzle():
       self.menu = []
 
 
+    def __repr__(self) -> str:
+        return self.name
+
     def generate_flavor_preferences(self):
       preferences = []
       num_preferences = random.randint(1, len(WORLD["flavors"]))
@@ -64,7 +67,6 @@ class Wuzzle():
         return []
 
       for candy in candies:
-        print(f"type: {candy.name}")
         if not candy.uuid in self.licked_candy_ids:
           self.potential_candy_ids.append(candy.uuid)
           

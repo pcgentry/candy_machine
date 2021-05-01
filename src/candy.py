@@ -17,8 +17,12 @@ class Candy():
 
   def __init__(self) -> None:
     # We reverse the string here to differentiate Wuzzle names from CANDY names
-    self.name = FAKER.name()[::-1]
+    self.name = FAKER.safe_color_name()
     self.uuid = uuid.uuid1
     self.num_flavors = random.randint(1, len(flavors.flavors))
     self.flavors = flavors.make_flavors(self.num_flavors)
+
+
+  def __repr__(self) -> str:
+    return self.name
 

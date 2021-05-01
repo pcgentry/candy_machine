@@ -1,6 +1,7 @@
 from src.candy import Candy
 from src.wuzzle import Wuzzle
 from src.machine import Machine
+from src.config import WORLD
 
 
 class World():
@@ -37,3 +38,10 @@ class World():
     self.candies = []
     for i in range(self.initial_candy_population):
       self.candies.append(Candy())
+
+  def text_report(self):
+    return (f""" 
+    Wuzzles: {self.wuzzles}
+    Candies: {self.candies}
+    World Flavors: {WORLD["flavors"]}
+    """)

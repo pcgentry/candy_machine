@@ -9,3 +9,7 @@ def test_world_init(RandomWorld):
   assert len(RandomWorld.wuzzles) > 0
   assert len(RandomWorld.candies) > 0
   assert RandomWorld.machine
+
+
+def test_world_text_report(RandomWorld):
+  assert isinstance(RandomWorld.text_report(), str)
