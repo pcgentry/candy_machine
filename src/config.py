@@ -9,6 +9,10 @@ WORLD = {
   "flavors": np.array(['apple', 'toenail', 'earwax', 'green tea', 'peach', 'tarball', 'toe fuzz']),
   "cookbook_page_length": 3,
   "cookbook_num_pages": 2,
-  "menu_size": 3
+  "menu_size": 3,
+  "initial_wuzzle_population": 10,
+  "initial_candy_population": 10,
+  "hunger_rate": .25,
+  "hunger_death": 1,
 }
 

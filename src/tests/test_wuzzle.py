@@ -15,6 +15,7 @@ def test_wuzzle_init_flavor_preferences(RandomWuzzle):
     assert len(RandomWuzzle.flavor_preferences) > 0, "Wuzzle has zero flavor preferences"
     assert RandomWuzzle.uuid
     assert RandomWuzzle.hunger ==  0, "Wuzzle needs hunger"
+    assert RandomWuzzle.life ==  1, "Wuzzle needs to be alive"
     # assert isinstance(RandomWuzzle.menu, list), "Wuzzles need to own a menu to be filled by the Candy Machine"
 
     for key, value in RandomWuzzle.flavor_preferences.items():

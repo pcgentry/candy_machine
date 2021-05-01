@@ -1,16 +1,13 @@
 #!/Users/phil/git/galvanize/projects/candy_machine/bin/python
 
-from src.wuzzle import Wuzzle 
-from src.candy import Candy
-from src.flavors import Flavors
 from src.world import World
-from src.machine import Machine
-from src.cookbook import Cookbook
 
-
-
+nights = 5
 Wuzzlopolis = World()
 
 print(Wuzzlopolis.text_report())
+print(Wuzzlopolis.population_status())
 
-
+for i in range(nights):
+  Wuzzlopolis.night()
+  print(Wuzzlopolis.population_status())

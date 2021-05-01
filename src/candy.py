@@ -2,7 +2,7 @@ from src.config import FAKER
 import uuid
 import random
 
-from src.config import FAKER, WORLD
+from src.config import FAKER
 from src.flavors import Flavors
 
 
@@ -17,6 +17,8 @@ class Candy():
 
   def __init__(self) -> None:
     # We reverse the string here to differentiate Wuzzle names from CANDY names
+    self.life = 1
+    self.hunger = 0.0
     self.name = FAKER.safe_color_name()
     self.uuid = uuid.uuid1
     self.num_flavors = random.randint(1, len(flavors.flavors))

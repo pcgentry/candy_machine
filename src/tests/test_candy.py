@@ -1,6 +1,4 @@
 """ Testing Candy """
-from random import Random
-import uuid
 import pytest
 
 def test_candy_has_name(RandomCandy):

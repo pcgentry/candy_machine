@@ -16,11 +16,15 @@ class Wuzzle():
     The flavor preferences they have are actually the output of different models that would be making recommendations.
     '''
     def __init__(self):
+      self.life = 1
+      self.hunger = 0.0
+      
       self.uuid = uuid.uuid1()
       self.name = FAKER.name()
-      self.hunger = 0 
+
       self.generate_flavor_preferences()
       self.generate_cookbooks()
+      
       self.licked_candy_ids = []
       self.potential_candy_ids = []
       self.menu = []

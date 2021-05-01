@@ -13,3 +13,9 @@ def test_world_init(RandomWorld):
 
 def test_world_text_report(RandomWorld):
   assert isinstance(RandomWorld.text_report(), str)
+
+
+def test_world_night(RandomWorld):
+  TestWorld = RandomWorld
+  TestWorld.night()
+  assert TestWorld.nights == 1
