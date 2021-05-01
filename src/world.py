@@ -18,6 +18,9 @@ class World():
     self.generate_wuzzles()
     self.generate_candies()
 
+    for wuzzle in self.wuzzles:
+      wuzzle.find_candies(self.candies)
+
 
   def generate_wuzzles(self):
     ''' This is where we keep our Wuzzles '''
@@ -32,4 +35,4 @@ class World():
 
     self.candies = []
     for i in range(self.initial_candy_population):
-      self.candies.append(Candy)
+      self.candies.append(Candy())
