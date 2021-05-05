@@ -1,4 +1,4 @@
-#!/Users/phil/git/galvanize/projects/candy_machine/bin/python
+#!./bin/python
 
 from src.world import World
 

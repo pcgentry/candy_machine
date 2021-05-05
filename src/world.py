@@ -26,8 +26,14 @@ class World():
       wuzzle.generate_cookbooks()
 
 
+  def wuzzles_lick_candies(self):
+    raise NameError('Time to do some licking code')
+    
+
   def night(self):
-    ''' a day has passed, update hunger '''
+    ''' a day has passed, lick, and update hunger '''
+
+    self.wuzzles_lick_candies()
 
     for candy in self.candies:
       candy.hunger += self.hunger_rate
@@ -79,9 +85,6 @@ class World():
         status["total_hunger_wuzzle"] += wuzzle.hunger
 
     status["dead_wuzzle"] = status["population_wuzzle"] - status["live_wuzzle"]
-
-
-
 
     status["population_candy"] = 0
     status["dead_candy"] = 0
