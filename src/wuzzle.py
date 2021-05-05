@@ -104,4 +104,4 @@ class Wuzzle():
 
       self.hunger = 0
       candy.hunger = 0
-      self.licked_candy_ids.append(candy)
+      self.licked_candy_ids.append(candy.uuid)
