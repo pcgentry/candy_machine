@@ -39,3 +39,6 @@ def test_wuzzle_generate_cookbooks(RandomWuzzle, CandySet):
     Test_Wuz.populate_cookbooks(CandySet)
     assert isinstance(Test_Wuz.cookbooks[0].flavor, str)
 
+
+def test_wuzzle_check_menu(RandomWuzzle, CandySet):
+    test_wuzz = RandomWuzzle.check_menu(CandySet)

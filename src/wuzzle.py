@@ -36,9 +36,9 @@ class Wuzzle():
     def generate_flavor_preferences(self):
       preferences = []
       num_preferences = random.randint(1, len(WORLD["flavors"]))
-
+      self.flavor_preferences = {}
       for flavor in np.random.choice(WORLD["flavors"], replace=False, size=num_preferences):
-        self.flavor_preferences = {flavor : random.uniform(0, 1)}
+        self.flavor_preferences[flavor]= random.uniform(0, 1)
 
 
     def generate_cookbooks(self):
@@ -66,6 +66,7 @@ class Wuzzle():
       Keyword Arguments:
       candies -- This is a list containing candy objects that could be found. 
       '''
+      self.potential_candy_ids = []
 
       if len(candies) == 0:
         return []
@@ -77,9 +78,30 @@ class Wuzzle():
       return self.potential_candy_ids
 
 
+    def check_menu(self, candies):
+      ''' Go through the menu and decide whether to lick each candy. '''
+
+      for candy_id in self.menu:
+        # print(candy_id)
+        for candy in candies:
+          # print(candy.uuid)
+          if candy.life == 1:
+            if candy.uuid == candy_id:
+              # print (f"Trying to lick: {candy.name}")
+              for flavor in candy.flavors:
+                if flavor in self.flavor_preferences:
+                  # print(f"likes {flavor}")
+                  if random.uniform(0, 1) > self.flavor_preferences[flavor]:
+                    # print(f"LICKS **** {flavor}")
+                    self.lick_candy(candy)
+
+
+
     def lick_candy(self, candy):
       ''' Licking a candy means we have considered the Candy and decided to lick it. 
       
       Append to the licked list.'''
 
+      self.hunger = 0
+      candy.hunger = 0
       self.licked_candy_ids.append(candy)

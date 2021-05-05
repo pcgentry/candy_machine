@@ -15,6 +15,6 @@ def test_recommend_for_wuzzle(RandomMachine, RandomWuzzle, CandySet):
   RandomMachine.recommend_for_wuzzle(Test_Wuz, candies)
   
   assert isinstance(Test_Wuz.menu, list)
-  assert len(Test_Wuz.menu) > 0
+  assert len(Test_Wuz.menu) == 3
 
 

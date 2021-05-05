@@ -10,9 +10,9 @@ WORLD = {
   "cookbook_page_length": 3,
   "cookbook_num_pages": 2,
   "menu_size": 3,
-  "initial_wuzzle_population": 10,
-  "initial_candy_population": 10,
+  "initial_wuzzle_population": 20,
+  "initial_candy_population": 20,
   "hunger_rate": .25,
-  "hunger_death": 1,
+  "hunger_death": .75,
 }
 

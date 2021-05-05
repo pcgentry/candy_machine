@@ -20,7 +20,7 @@ class Candy():
     self.life = 1
     self.hunger = 0.0
     self.name = FAKER.safe_color_name()
-    self.uuid = uuid.uuid1
+    self.uuid = uuid.uuid1()
     self.num_flavors = random.randint(1, len(flavors.flavors))
     self.flavors = flavors.make_flavors(self.num_flavors)
 

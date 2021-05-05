@@ -12,19 +12,20 @@ class Machine():
     self.strategy = "random"
 
 
-  def recommend_for_wuzzle(self, wuzzle, candies):
+  def recommend_for_wuzzle(self, wuzzle, candies, menu_size=3):
     ''' 
     
     Fill the menu for a Wuzzle. We want to be able to use multiple strategies for simulation, so this is basically intended to be a case statement. 
     
-    Each strategy needs to eturn a list of candy ids.
+    Each strategy needs to return a list of candy ids.
 
     '''
     if self.strategy == "random":
-      wuzzle.menu = self.suggest_by_random(wuzzle)
+      # print(wuzzle.potential_candy_ids)s
+      wuzzle.menu = self.suggest_by_random(wuzzle, candies)
+      # print(wuzzle.menu)
 
-
-  def suggest_by_random(self, wuzzle) -> list:
+  def suggest_by_random(self, wuzzle, candies, menu_size=3) -> list:
     ''' this implements the random strategy. In theory it should perform badly as it will not be able to tell which candies the wuzzle likes more '''
     return random.choices(wuzzle.potential_candy_ids, k = WORLD["menu_size"])
 
