@@ -4,6 +4,25 @@ from src.machine import Machine
 from src.config import WORLD
 
 
+class Simulation():
+
+    def __init__(self, max_nights=1000):
+        Wuzzlopolis = World()
+        self.world_objects = Wuzzlopolis.objects_report()
+        self.nightly_stats = []
+        self.nightly_stats.append(Wuzzlopolis.population_status())
+
+        for i in range(max_nights):
+            Wuzzlopolis.night()
+            w_snapshot = Wuzzlopolis.population_status()
+
+            self.nightly_stats.append(w_snapshot)
+
+            if Wuzzlopolis.wuzzle_population == 0:
+                break
+
+        self.simulation_length = len(self.nightly_stats)-1
+
 class World():
   ''' The World object is what contains all the other things in Wuzzlopolis. Wuzzles, Candies, Candy Machines... etc.  This is where days become nights, 
   and history gets written.
@@ -14,7 +33,8 @@ class World():
     self.initial_wuzzle_population = self.config["initial_wuzzle_population"]
     self.initial_candy_population =  self.config["initial_candy_population"]
     self.nights = 0
-
+    self.lick_counter = 0
+    self.nightly_lick_counter = 0
 
     self.hunger_rate = float(self.config["hunger_rate"])
     self.machine = Machine()
@@ -35,10 +55,14 @@ class World():
         # print(wuzzle.menu)
         # print(self.candies)
         wuzzle.check_menu(self.candies)
-    
+        if wuzzle.nightly_lick_counter > 0:
+          self.lick_counter += wuzzle.nightly_lick_counter
+          self.nightly_lick_counter += wuzzle.nightly_lick_counter
+
 
   def night(self):
     ''' a day has passed, lick, and update hunger '''
+    self.nightly_lick_counter = 0
 
     self.wuzzles_eat_dinner()
 
@@ -70,15 +94,30 @@ class World():
     for i in range(self.initial_candy_population):
       self.candies.append(Candy())
 
-  def text_report(self):
-    return (f""" 
-    Wuzzles: {self.wuzzles}
-    Candies: {self.candies}
-    World Flavors: {self.config["flavors"]}
-    """)
+  def objects_report(self):
+
+    w_report = {}
+    w_list = []
+    c_list = []
+    f_list = []
+
+    for wuzzle in self.wuzzles:
+      w_list.append(wuzzle.name)
+
+    for candy in self.candies:
+      c_list.append(candy.name)
+
+    w_report["wuzzles"] = w_list
+    w_report["candies"] = c_list
+    w_report["flavors"] = self.config["flavors"]
+
+    return w_report
 
   def population_status(self) -> dict:
     status = {}
+
+    status["nightly_lick_counter"] = self.nightly_lick_counter
+    status["lick_counter"] = self.lick_counter
 
     status["population_wuzzle"] = 0
     status["dead_wuzzle"] = 0

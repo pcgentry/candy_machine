@@ -8,5 +8,5 @@ faker
 pytest
 uuid
 faker
-
+seaborn
 

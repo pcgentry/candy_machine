@@ -18,7 +18,9 @@ class Wuzzle():
     def __init__(self):
       self.life = 1
       self.hunger = 0.0
-      
+      self.lick_counter = 0
+      self.nightly_lick_counter = 0
+
       self.uuid = uuid.uuid1()
       self.name = FAKER.name()
 
@@ -80,7 +82,8 @@ class Wuzzle():
 
     def check_menu(self, candies):
       ''' Go through the menu and decide whether to lick each candy. '''
-
+      self.nightly_lick_counter = 0
+      
       for candy_id in self.menu:
         # print(candy_id)
         for candy in candies:
@@ -105,3 +108,5 @@ class Wuzzle():
       self.hunger = 0
       candy.hunger = 0
       self.licked_candy_ids.append(candy.uuid)
+      self.lick_counter += 1
+      self.nightly_lick_counter += 1
