@@ -79,10 +79,28 @@ Because we are working in a virtual env, pytest will need to be invoked with:
 	python -m pytest
 	
 
-***Future Considerations***:
+# Tooling and Process
+
+## Incremental Learning
+Because of the nature of the problem set, I decided it would be better if the model learned in real time, as information became available from the simulation. So I employed a library called river to implement incremental learning.
+
+**River**: River is a Python library for online machine learning. It is the result of a merger between creme and scikit-multiflow. River's ambition is to be the go-to library for doing machine learning on streaming data.
+
+#TODO
+
+- started on a logistic regression code for the machine.. it is split between increm..ipynb and machine.py .. river is present, but not implemented
+- There needs to be a fallback on random machine if the model doesn't exist. Then train the model and get things started. (Possibly always a %fallback on random?)
+- at this point, I need to write an X,y pair for when a wuzzle looks at/licks a candy and feed that back into the incremental training model
+- ask ryan what the fundamental difference is, if any between reinforcement learning and incremental learning .. or are they basically the same thing?
+- X features are currently defined in my rocketbook notebook (irl)
+- After completing the increment the LR model, I'll move to other model types including NN, and specifically hoping that at that point I'll be familiar enought to tackle the reinforcement NN pieece
+
+
+# ***Future Considerations***:
 
 	What if CANDY was actually wuzzles in disguise?
 	What if wuzzles and CANDY can have **babies**?
 	CANDY might lay eggs in wuzzle poop. We're not sure about that yet.
 	What if a wuzzle can form a psychic chat-bond with a CANDY, and as long as it persists, the effects are mutually beneficial?
+	What if Wuzzles could recycle candy after a certain amount of time, or have a % chance of a candy getting reset. If so, is there a population density that perpetuates Wuzzledom?
 

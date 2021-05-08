@@ -10,3 +10,9 @@ uuid
 faker
 seaborn
 
+## If we ever get to reinforcement learning
+rl
+tensorflow
+
+## For other icremental learning
+river

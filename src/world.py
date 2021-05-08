@@ -4,25 +4,6 @@ from src.machine import Machine
 from src.config import WORLD
 
 
-class Simulation():
-
-    def __init__(self, max_nights=1000):
-        Wuzzlopolis = World()
-        self.world_objects = Wuzzlopolis.objects_report()
-        self.nightly_stats = []
-        self.nightly_stats.append(Wuzzlopolis.population_status())
-
-        for i in range(max_nights):
-            Wuzzlopolis.night()
-            w_snapshot = Wuzzlopolis.population_status()
-
-            self.nightly_stats.append(w_snapshot)
-
-            if Wuzzlopolis.wuzzle_population == 0:
-                break
-
-        self.simulation_length = len(self.nightly_stats)-1
-
 class World():
   ''' The World object is what contains all the other things in Wuzzlopolis. Wuzzles, Candies, Candy Machines... etc.  This is where days become nights, 
   and history gets written.
@@ -36,8 +17,11 @@ class World():
     self.lick_counter = 0
     self.nightly_lick_counter = 0
 
+    self.reward = 10
+    self.punishment = -100
+
     self.hunger_rate = float(self.config["hunger_rate"])
-    self.machine = Machine()
+    self.machine = Machine(reward=self.reward, punishment=self.punishment)
     self.generate_wuzzles()
     self.generate_candies()
 
