@@ -81,6 +81,10 @@ Because we are working in a virtual env, pytest will need to be invoked with:
 
 # Tooling and Process
 
+## Implementation of Random
+
+In the first notebook in the series, a random algorithm is implemented to establish a baseline for what happens when no intelligent routing of candy happens.
+
 ## Incremental Learning
 Because of the nature of the problem set, I decided it would be better if the model learned in real time, as information became available from the simulation. So I employed a library called river to implement incremental learning.
 
@@ -88,6 +92,7 @@ Because of the nature of the problem set, I decided it would be better if the mo
 
 #TODO
 
+- graphs output to images folder.
 - started on a logistic regression code for the machine.. it is split between increm..ipynb and machine.py .. river is present, but not implemented
 - There needs to be a fallback on random machine if the model doesn't exist. Then train the model and get things started. (Possibly always a %fallback on random?)
 - at this point, I need to write an X,y pair for when a wuzzle looks at/licks a candy and feed that back into the incremental training model
