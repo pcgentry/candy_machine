@@ -1,14 +1,15 @@
-import random
 from joblib import dump, load
 
-from river import compose
-from river import linear_model
-from river import metrics
-from river import preprocessing
-from river import datasets
+# from river import compose
+# from river import linear_model
+# from river import metrics
+# from river import preprocessing
+# from river import datasets
 
 
 from src.config import WORLD
+from src.models.random import Random
+from src.models.logistic_regression import LogisticRegression
 
 
 class Machine():
@@ -31,32 +32,14 @@ class Machine():
     '''
     if self.strategy == "random":
       # print(wuzzle.potential_candy_ids)s
-      wuzzle.menu = self.suggest_by_random(wuzzle, candies)
+      wuzzle.menu = Random.suggest(wuzzle, candies)
       # print(wuzzle.menu)
 
     if self.strategy == "logistic_regression":
-      wuzzle.menu = self.suggest_by_logistic_regression(wuzzle, candies)
+      # wuzzle.menu = self.suggest_by_logistic_regression(wuzzle, candies)
+      wuzzle.menu = LogisticRegression.suggest(wuzzle, candies)
 
 
-  def suggest_by_random(self, wuzzle, candies, menu_size=3) -> list:
-    ''' this implements the random strategy. In theory it should perform badly as it will not be able to tell which candies the wuzzle likes more '''
 
-    if WORLD["menu_size"] > len(wuzzle.potential_candy_ids):
-      menu_size = len(wuzzle.potential_candy_ids)
-    else:
-      menu_size = WORLD["menu_size"]
-
-    return random.choices(wuzzle.potential_candy_ids, k=menu_size)
-
-
-  def suggest_by_logistic_regression(self, wuzzle, candies, menu_size=3) -> list:
-    ''' this implements the random strategy. In theory it should perform badly as it will not be able to tell which candies the wuzzle likes more '''
-
-    if WORLD["menu_size"] > len(wuzzle.potential_candy_ids):
-      menu_size = len(wuzzle.potential_candy_ids)
-    else:
-      menu_size = WORLD["menu_size"]
-
-    return random.choices(wuzzle.potential_candy_ids, k=menu_size)
 
 
