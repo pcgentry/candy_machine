@@ -18,7 +18,7 @@ class Machine():
   '''
 
   # def __init__(self, strategy="random", reward=10, punishment=-100) -> None:
-  def __init__(self, strategy="logistic_regression", reward=10, punishment=-100) -> None:
+  def __init__(self, strategy="random", reward=10, punishment=-100) -> None:
     self.strategy = strategy
 
 

@@ -4,8 +4,8 @@ from src.config import WORLD
 
 class Simulation():
 
-    def __init__(self, max_nights=1000):
-        Wuzzlopolis = World()
+    def __init__(self, max_nights=1000, strategy="random"):
+        Wuzzlopolis = World(strategy = strategy)
         self.world_objects = Wuzzlopolis.objects_report()
         self.nightly_stats = []
         self.nightly_stats.append(Wuzzlopolis.population_status())

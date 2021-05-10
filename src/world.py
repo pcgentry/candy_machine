@@ -9,7 +9,7 @@ class World():
   and history gets written.
   '''
 
-  def __init__(self) -> None:
+  def __init__(self, strategy="random") -> None:
     self.config = WORLD
     self.initial_wuzzle_population = self.config["initial_wuzzle_population"]
     self.initial_candy_population =  self.config["initial_candy_population"]
@@ -21,7 +21,7 @@ class World():
     self.punishment = -100
 
     self.hunger_rate = float(self.config["hunger_rate"])
-    self.machine = Machine(reward=self.reward, punishment=self.punishment)
+    self.machine = Machine(reward=self.reward, punishment=self.punishment, strategy=strategy)
     self.generate_wuzzles()
     self.generate_candies()
 
