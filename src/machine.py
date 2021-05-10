@@ -20,6 +20,7 @@ class Machine():
   # def __init__(self, strategy="random", reward=10, punishment=-100) -> None:
   def __init__(self, strategy="random", reward=10, punishment=-100) -> None:
     self.strategy = strategy
+    self.model = LogisticRegression()
 
 
   def recommend_for_wuzzle(self, wuzzle, candies, menu_size=3):
@@ -37,7 +38,7 @@ class Machine():
 
     if self.strategy == "logistic_regression":
       # wuzzle.menu = self.suggest_by_logistic_regression(wuzzle, candies)
-      wuzzle.menu = LogisticRegression.suggest(wuzzle, candies)
+      wuzzle.menu = self.model.suggest(wuzzle, candies)
 
 
 

@@ -25,8 +25,8 @@ class LogisticRegression():
       self.save_model()
 
 
-  def suggest(wuzzle, menu_size=3) -> list:
-    ''' this implements the random strategy. In theory it should perform badly as it will not be able to tell which candies the wuzzle likes more '''
+  def suggest(self, wuzzle, menu_size=3) -> list:
+    ''' Use this model to make suggestions '''
 
     if WORLD["menu_size"] > len(wuzzle.potential_candy_ids):
       menu_size = len(wuzzle.potential_candy_ids)
@@ -35,5 +35,6 @@ class LogisticRegression():
 
     return random.choices(wuzzle.potential_candy_ids, k=menu_size)
 
+
   def save_model(self):
-    dump(model, self.file_path)
+    dump(self.model, self.file_path)
