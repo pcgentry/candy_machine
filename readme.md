@@ -83,18 +83,38 @@ Because we are working in a virtual env, pytest will need to be invoked with:
 
 ## Implementation of Random
 
-In the first notebook in the series, a random algorithm is implemented to establish a baseline for what happens when no intelligent routing of candy happens.
+The first task of this project was to implement the simulation itself and establish a baseline for what happens in an uncontrolled simulation. It was also necessary to gain insight into what happens during a simulation run.
+
+So in the first notebook in the series, a random algorithm is used to establish a baseline for what happens when no intelligent routing of candy happens.
+
+![](images/random_wuzzle_population_over_time.png)
+![](images/random_distribution_final_days.png)
+![](images/random_total_licks.png)
+![](images/random_nightly_licks.png)
 
 ## Incremental Learning
-Because of the nature of the problem set, I decided it would be better if the model learned in real time, as information became available from the simulation. So I employed a library called river to implement incremental learning.
+
+Before building the reinforcement learning piece, it made sense to also implement an incrementally trained model to give me a chance to flesh out things like model persistence and further develop the simulation.
+
+Incremental learning has a lot in common with the idea of reinforcement learning, so it made sense to go after those parts first. In order to accomplish this easily, I employed a python library called River.
 
 **River**: River is a Python library for online machine learning. It is the result of a merger between creme and scikit-multiflow. River's ambition is to be the go-to library for doing machine learning on streaming data.
 
+The first model I chose was Logistic Regression because of:
+
+- Ease of implementation.
+- Support for incremental training.
+
+
+![](images/lr_wuzzle_population_over_time.png)
+![](images/lr_distribution_final_days.png)
+![](images/lr_total_licks.png)
+![](images/lr_nightly_licks.png)
+
+
 #TODO
 
-- graphs output to images folder.
 - started on a logistic regression code for the machine.. it is split between increm..ipynb and machine.py .. river is present, but not implemented
-- There needs to be a fallback on random machine if the model doesn't exist. Then train the model and get things started. (Possibly always a %fallback on random?)
 - at this point, I need to write an X,y pair for when a wuzzle looks at/licks a candy and feed that back into the incremental training model
 - ask ryan what the fundamental difference is, if any between reinforcement learning and incremental learning .. or are they basically the same thing?
 - X features are currently defined in my rocketbook notebook (irl)
