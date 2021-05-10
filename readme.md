@@ -87,10 +87,21 @@ The first task of this project was to implement the simulation itself and establ
 
 So in the first notebook in the series, a random algorithm is used to establish a baseline for what happens when no intelligent routing of candy happens.
 
+Much as we would expect, all the Wuzzles die. This is because the same Wuzzle cannot lick the same candy more than once, and there are never new candy introduced, so eventually all the Wuzzles starve to death.
 ![](images/random_wuzzle_population_over_time.png)
+
+I use the term "**Wuzzlpocalypse**" to represent the day that the last Wuzzle dies of starvation. In each simulation, the day is recorded and you can see a distribution of how long that takes in the graph below.
+
 ![](images/random_distribution_final_days.png)
+
+Next we can see the total number of licks that happen in each simulation as well as the mean of them. You can see that early on the number climbs quickly and as the candy supply diminishes, the number levels off and everyone dies.
+
 ![](images/random_total_licks.png)
+
+Last, we look at licks per day. It is similar to the last graph, but focused on each day rather than a grand total for the simulation.
+
 ![](images/random_nightly_licks.png)
+
 
 ## Incremental Learning
 
