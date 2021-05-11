@@ -9,9 +9,12 @@ from src.flavors import Flavors
 flavors = Flavors()
 
 class Candy():
-  """A Candy is an individual piece of Candy. They are fed to wuzzles and have different flavors. In the grand scheme of things, CANDY represents
-  a match that a Wuzzle might like. In the non-metaphorical sense, a CANDY might be a particular movie, such as The Princess Bride, and its
-  flavor corresponds to whatever recommender alg. it was recommended by. NOTE: flavor does NOT represent individual features in this metaphor.
+  """A Candy is an individual piece of Candy.
+
+  They are fed to wuzzles and have different flavors. In the grand scheme of things, CANDY represents a match that a
+  Wuzzle might like. In the non-metaphorical sense, a CANDY might be a particular movie, such as The Princess Bride, and
+  its flavor corresponds to whatever recommender alg. it was recommended by. NOTE: flavor does NOT represent individual
+  features in this metaphor.
   """
 
   def __init__(self):
