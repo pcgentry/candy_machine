@@ -22,7 +22,7 @@ class DecisionTree():
     if path.exists(self.file_path):
       self.model = load(self.file_path)
     else:
-      self.model = tree.HoeffdingTreeClassifier(grace_period=WORLD["menu_size"]*WORLD["initial_wuzzle_population"])
+      self.model = tree.LabelCombinationHoeffdingTreeClassifier(grace_period=10)
       self.save_model()
 
 
