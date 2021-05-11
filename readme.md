@@ -145,10 +145,14 @@ On the other hand the **tree** model quickly trains to an improved accuracy afte
 ![](images/random_machine_accuracy.png)
 ![](images/dt_machine_accuracy.png)
 
-#TODO
+
+# TODO:
+
 
 - ask ryan what the fundamental difference is, if any between reinforcement learning and incremental learning .. or are they basically the same thing?
 - revisit averages for graphs.. something is wrong there
+- use precision in addition to accuracy
+	- look into other available metrics
 - Look at SKL2RiverClassifier for random forest, I'd like to see what RF can do with this, but it isn't implemented directly in River - https://riverml.xyz/latest/api/compat/SKL2RiverClassifier/
 - Include Wuzzle.uuid in the training set. What if the tree actually needs to learn about individual wuzzles?
 - might need to play with hunger rate so that the model has time to learn
