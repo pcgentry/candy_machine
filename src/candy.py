@@ -18,8 +18,6 @@ class Candy():
   """
 
   def __init__(self):
-    # We reverse the string here to differentiate Wuzzle names from CANDY names
-    # ^^^^ I don't see a string being reversed.... where's the string reversal?
     self.life = 1
     self.hunger = 0.0
     self.name = FAKER.safe_color_name()

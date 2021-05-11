@@ -1,10 +1,10 @@
 """The Simulation class."""
-from src.config import WORLD
 from src.world import World
 
 
 class Simulation():
-
+    """Contains and operates on the world."""
+    
     def __init__(self, max_nights=1000, strategy="random"):
         Wuzzlopolis = World(strategy = strategy)
 

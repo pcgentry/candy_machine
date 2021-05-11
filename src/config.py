@@ -1,7 +1,4 @@
 """Candy machine configuration."""
-import uuid
-
-import faker
 from faker import Faker
 import numpy as np
 

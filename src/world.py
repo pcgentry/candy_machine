@@ -1,7 +1,8 @@
+"""The World Class."""
 from src.candy import Candy
-from src.wuzzle import Wuzzle
-from src.machine import Machine
 from src.config import WORLD
+from src.machine import Machine
+from src.wuzzle import Wuzzle
 
 
 class World():

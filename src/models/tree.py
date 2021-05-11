@@ -4,7 +4,7 @@ import random
 from typing import List
 
 from joblib import dump, load
-from river import compose, tree, metrics, preprocessing
+from river import tree, metrics
 
 from src.config import WORLD
 

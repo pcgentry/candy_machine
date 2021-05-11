@@ -1,13 +1,4 @@
-"""The Macfhine class."""
-from joblib import dump, load
-
-# from river import compose
-# from river import linear_model
-# from river import metrics
-# from river import preprocessing
-# from river import datasets
-
-from src.config import WORLD
+"""The Machine class."""
 from src.models.random import Random
 from src.models.tree import DecisionTree
 

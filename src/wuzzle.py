@@ -1,5 +1,6 @@
-import random
+"""The Wuzzle class."""
 from typing import List
+import random
 import uuid
 
 import numpy as np
@@ -9,12 +10,13 @@ from src.cookbook import Cookbook
 
 
 class Wuzzle():
-    '''
-    Creates a wuzzle critter to eat CANDY. In the grand scheme of things, Wuzzles are actually simulated human consumers. The flavor preferences
-    they have would not exist in our data set. It is the job of the Candy Machine to figure out what types of candy each Wuzzle likes best.
+    """Creates a wuzzle critter to eat CANDY. 
+    
+    In the grand scheme of things, Wuzzles are actually simulated human consumers. The flavor preferences they have 
+    would not exist in our data set. It is the job of the Candy Machine to figure out what types of candy each Wuzzle likes best.
 
     The flavor preferences they have are actually the output of different models that would be making recommendations.
-    '''
+    """
     def __init__(self):
       self.life = 1
       self.hunger = 0.0
@@ -64,11 +66,12 @@ class Wuzzle():
 
 
     def find_candies(self, candies) -> List:
-      ''' get all candies that this Wuzzle can lick
+      """Get all candies that this Wuzzle can lick
       
       Keyword Arguments:
       candies -- This is a list containing candy objects that could be found. 
-      '''
+      """
+      
       self.potential_candy_ids = []
 
       if len(candies) == 0:
