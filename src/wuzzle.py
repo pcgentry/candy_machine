@@ -81,15 +81,17 @@ class Wuzzle():
       return self.potential_candy_ids
 
 
-    def get_features(self, candy):
+    def get_features(self, candy, include_hunger=True):
       # print(self.flavor_preferences)
       # print(candy.flavors)
 
       w_flavors = {"w_" + str(key): val for key, val in self.licked_flavor_counter.items()}
       c_flavors = {"c_" + str(key): val for key, val in candy.flavors.items()}
       feature_arr = {**w_flavors, **c_flavors}
-      feature_arr['w_hunger'] = self.hunger
-      feature_arr['c_hunger'] = candy.hunger
+
+      if include_hunger:
+        feature_arr['w_hunger'] = self.hunger
+        feature_arr['c_hunger'] = candy.hunger
 
       # print(feature_arr)
       return feature_arr
@@ -119,7 +121,7 @@ class Wuzzle():
                     self.lick_candy(candy, flavor)
                     training_target = 1
                     
-            machine.train_one(self.get_features(candy), training_target)
+            machine.train_one(self.get_features(candy, include_hunger=machine.include_hunger), training_target)
 
 
 

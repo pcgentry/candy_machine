@@ -79,7 +79,7 @@ Because we are working in a virtual env, pytest will need to be invoked with:
 	python -m pytest
 	
 
-# Tooling and Process
+# Modeling
 
 ## Implementation of Random
 
@@ -124,21 +124,25 @@ Here is the breakdown of the first training:
 
 ### My hypothesis for this part of the project is that this model will actually be good at feeding the best candy to wuzzles. Unfortunately I think this will lead to initial gluttony followed by a faster starvation cycle and an EARLIER Wuzzlpocalypse... which is very bad for the Wuzzles.
 
+
 ## Let's find out:
 
-![](images/dt_wuzzle_population_over_time.png)
-![](images/dt_distribution_final_days.png)
-![](images/dt_total_licks.png)
+It looks like, **yes**, the date for Wuzzlpocalypse is significantly moved up when we use the Decision Tree model. It looks like our tree is reasonably good at feeding wuzzles and letting the gluttonous little buggers eat themselves to death.
+
+![](images/random_nightly_licks.png)
 ![](images/dt_nightly_licks.png)
 
+### Accuracy
+
+Another thing we can look at is accuracy over time for each simulation:
+
+![](images/random_machine_accuracy.png)
+![](images/dt_machine_accuracy.png)
 
 #TODO
 
-- started on a DT code for the machine.. it is split between increm..ipynb and machine.py .. river is present, but not implemented
-- at this point, I need to write an X,y pair for when a wuzzle looks at/licks a candy and feed that back into the incremental training model
 - ask ryan what the fundamental difference is, if any between reinforcement learning and incremental learning .. or are they basically the same thing?
-- X features are currently defined in my rocketbook notebook (irl)
-- After completing the increment the LR model, I'll move to other model types including NN, and specifically hoping that at that point I'll be familiar enought to tackle the reinforcement NN pieece
+- revisit averages for graphs.. something is wrong there
 
 
 # ***Future Considerations***:

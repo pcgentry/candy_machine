@@ -95,6 +95,7 @@ class World():
     w_report["wuzzles"] = w_list
     w_report["candies"] = c_list
     w_report["flavors"] = self.config["flavors"]
+    
 
     return w_report
 
@@ -130,5 +131,7 @@ class World():
         status["total_hunger_candy"] += candy.hunger
 
     status["dead_candy"] = status["population_candy"] - status["live_candy"]
+
+    status["machine_accuracy"] = self.machine.report_accuracy()
 
     return(status)
