@@ -12,7 +12,7 @@ class Simulation():
         self.nightly_stats = []
         self.nightly_stats.append(Wuzzlopolis.population_status())
 
-        for _ in range(max_nights):
+        for i in range(max_nights):
             Wuzzlopolis.night()
             w_snapshot = Wuzzlopolis.population_status()
 

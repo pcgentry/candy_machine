@@ -1,7 +1,7 @@
 """The DecisionTree class."""
 from os import path
-import random
 from typing import List
+import random
 
 from joblib import dump, load
 from river import tree, metrics
@@ -36,7 +36,6 @@ class DecisionTree():
     else:
       menu_size = WORLD["menu_size"]
 
-    # return random.choices(wuzzle.potential_candy_ids, k=menu_size)
     suggestions = []
 
     for candy in candies:
@@ -55,11 +54,13 @@ class DecisionTree():
 
     return suggestions
 
-  def train_one(self, X=[], y=[]):
-    y_pred = self.model.predict_one(X)      # make a prediction
-    self.accuracy = self.accuracy.update(y, y_pred)  # update the metric
-    self.model.learn_one(X, y)
 
+  def train_one(self, X, y):
+    y_pred = self.model.predict_one(X)
+    print(y_pred)
+    self.accuracy = self.accuracy.update(y, y_pred)
+    print(X, y)
+    self.model.learn_one(x=X, y=y)
     self.accuracy_metric_float = self.accuracy.get()
 
 

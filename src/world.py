@@ -35,14 +35,14 @@ class World():
     for wuzzle in self.wuzzles:
       if wuzzle.life == 1:
         wuzzle.find_candies(self.candies)
+
         self.machine.recommend_for_wuzzle(wuzzle, self.candies, self.config["menu_size"])
-        # print(wuzzle.name)
-        # print(wuzzle.menu)
-        # print(self.candies)
+
         wuzzle.check_menu(self.candies, self.machine)
         if wuzzle.nightly_lick_counter > 0:
           self.lick_counter += wuzzle.nightly_lick_counter
           self.nightly_lick_counter += wuzzle.nightly_lick_counter
+          
     self.machine.save_model()
 
 
