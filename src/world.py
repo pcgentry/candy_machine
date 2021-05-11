@@ -42,6 +42,7 @@ class World():
         if wuzzle.nightly_lick_counter > 0:
           self.lick_counter += wuzzle.nightly_lick_counter
           self.nightly_lick_counter += wuzzle.nightly_lick_counter
+    self.machine.save_model()
 
 
   def night(self):

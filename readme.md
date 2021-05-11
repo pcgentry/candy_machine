@@ -118,7 +118,13 @@ The first model I chose was a **Decision Tree** simply because of:
 
 The way it works is via the check_menu() method in the Wuzzle class. Basically when a wuzzle looks at a candy on the menu, he decides wether to lick it or not. I attached this action to the train_one() method of the model and then persist the model to disk. 
 
+Here is the breakdown of the first training:
+
+![](images/dt.png)
+
 ### My hypothesis for this part of the project is that this model will actually be good at feeding the best candy to wuzzles. Unfortunately I think this will lead to initial gluttony followed by a faster starvation cycle and an EARLIER Wuzzlpocalypse... which is very bad for the Wuzzles.
+
+## Let's find out:
 
 ![](images/dt_wuzzle_population_over_time.png)
 ![](images/dt_distribution_final_days.png)

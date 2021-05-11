@@ -43,5 +43,6 @@ class Machine():
   def train_one(self, X=[], y=1):
     self.model.train_one(X, y)
 
-
+  def save_model(self):
+    self.model.save_model()
 

@@ -18,10 +18,7 @@ class DecisionTree():
     if path.exists(self.file_path):
       self.model = load(self.file_path)
     else:
-      self.model = compose.Pipeline(
-          preprocessing.StandardScaler(),
-          tree.HoeffdingTreeClassifier(grace_period=50)
-      )
+      self.model = tree.HoeffdingTreeClassifier(grace_period=50)
       self.save_model()
 
 
@@ -36,7 +33,7 @@ class DecisionTree():
     return random.choices(wuzzle.potential_candy_ids, k=menu_size)
 
   def train_one(self, X=[], y=[]):
-    pass
+    self.model.learn_one(X, y)
 
   
   def save_model(self):

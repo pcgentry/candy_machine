@@ -20,6 +20,7 @@ class Wuzzle():
       self.hunger = 0.0
       self.lick_counter = 0
       self.nightly_lick_counter = 0
+      self.licked_flavor_counter = dict.fromkeys(WORLD["flavors"], 0)
 
       self.uuid = uuid.uuid1()
       self.name = FAKER.name()
@@ -82,8 +83,16 @@ class Wuzzle():
 
     def get_features(self, candy):
       # print(self.flavor_preferences)
-      print(candy.flavors)
-      return []
+      # print(candy.flavors)
+
+      w_flavors = {"w_" + str(key): val for key, val in self.licked_flavor_counter.items()}
+      c_flavors = {"c_" + str(key): val for key, val in candy.flavors.items()}
+      feature_arr = {**w_flavors, **c_flavors}
+      feature_arr['w_hunger'] = self.hunger
+      feature_arr['c_hunger'] = candy.hunger
+
+      # print(feature_arr)
+      return feature_arr
 
 
     def check_menu(self, candies, machine):
@@ -107,14 +116,14 @@ class Wuzzle():
                   # print(f"likes {flavor}")
                   if random.uniform(0, 1) > self.flavor_preferences[flavor]:
                     # print(f"LICKS **** {flavor}")
-                    self.lick_candy(candy)
+                    self.lick_candy(candy, flavor)
                     training_target = 1
                     
             machine.train_one(self.get_features(candy), training_target)
 
 
 
-    def lick_candy(self, candy):
+    def lick_candy(self, candy, flavor):
       ''' Licking a candy means we have considered the Candy and decided to lick it. 
       
       Append to the licked list.'''
@@ -124,5 +133,5 @@ class Wuzzle():
       self.licked_candy_ids.append(candy.uuid)
       self.lick_counter += 1
       self.nightly_lick_counter += 1
-
+      self.licked_flavor_counter[flavor] += 1
       return 1
