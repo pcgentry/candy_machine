@@ -134,7 +134,12 @@ It looks like, **yes**, the date for Wuzzlpocalypse is significantly moved up wh
 
 ### Accuracy
 
-Another thing we can look at is accuracy over time for each simulation:
+Another thing we can look at is accuracy over time for each simulation.
+
+Because of the non-deterministic nature of the random model and the structure of the code, Random starts at an artificially high accuracy rating. However over time, you can see it trend down towards an expected 50/50 accuracy. 
+
+On the other hand the **tree** model quickly trains to an improved accuracy after a few nights and stays in that range. It is worth noting that it gets trained with every wuzzle looking at candy, so even by the end of the first night, it has had **(Number of Wuzzles x Number of Simulations)** of data points to train on. 
+
 
 ![](images/random_machine_accuracy.png)
 ![](images/dt_machine_accuracy.png)
