@@ -111,21 +111,24 @@ Incremental learning has a lot in common with the idea of reinforcement learning
 
 **River**: River is a Python library for online machine learning. It is the result of a merger between creme and scikit-multiflow. River's ambition is to be the go-to library for doing machine learning on streaming data.
 
-The first model I chose was **Logistic Regression** simply because of:
+The first model I chose was a **Decision Tree** simply because of:
 
 - Ease of implementation.
 - Support for incremental training.
 
+The way it works is via the check_menu() method in the Wuzzle class. Basically when a wuzzle looks at a candy on the menu, he decides wether to lick it or not. I attached this action to the train_one() method of the model and then persist the model to disk. 
 
-![](images/lr_wuzzle_population_over_time.png)
-![](images/lr_distribution_final_days.png)
-![](images/lr_total_licks.png)
-![](images/lr_nightly_licks.png)
+### My hypothesis for this part of the project is that this model will actually be good at feeding the best candy to wuzzles. Unfortunately I think this will lead to initial gluttony followed by a faster starvation cycle and an EARLIER Wuzzlpocalypse... which is very bad for the Wuzzles.
+
+![](images/dt_wuzzle_population_over_time.png)
+![](images/dt_distribution_final_days.png)
+![](images/dt_total_licks.png)
+![](images/dt_nightly_licks.png)
 
 
 #TODO
 
-- started on a logistic regression code for the machine.. it is split between increm..ipynb and machine.py .. river is present, but not implemented
+- started on a DT code for the machine.. it is split between increm..ipynb and machine.py .. river is present, but not implemented
 - at this point, I need to write an X,y pair for when a wuzzle looks at/licks a candy and feed that back into the incremental training model
 - ask ryan what the fundamental difference is, if any between reinforcement learning and incremental learning .. or are they basically the same thing?
 - X features are currently defined in my rocketbook notebook (irl)

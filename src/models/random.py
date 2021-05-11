@@ -12,3 +12,6 @@ class Random():
       menu_size = WORLD["menu_size"]
 
     return random.choices(wuzzle.potential_candy_ids, k=menu_size)
+
+  def train_one(self, X=[], y=[]):
+    pass

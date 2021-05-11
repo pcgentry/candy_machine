@@ -9,7 +9,7 @@ from joblib import dump, load
 
 from src.config import WORLD
 from src.models.random import Random
-from src.models.logistic_regression import LogisticRegression
+from src.models.tree import DecisionTree
 
 
 class Machine():
@@ -20,7 +20,7 @@ class Machine():
   # def __init__(self, strategy="random", reward=10, punishment=-100) -> None:
   def __init__(self, strategy="random", reward=10, punishment=-100) -> None:
     self.strategy = strategy
-    self.model = LogisticRegression()
+    self.model = DecisionTree()
 
 
   def recommend_for_wuzzle(self, wuzzle, candies, menu_size=3):
@@ -36,11 +36,12 @@ class Machine():
       wuzzle.menu = Random.suggest(wuzzle, candies)
       # print(wuzzle.menu)
 
-    if self.strategy == "logistic_regression":
+    if self.strategy == "decision_tree":
       # wuzzle.menu = self.suggest_by_logistic_regression(wuzzle, candies)
       wuzzle.menu = self.model.suggest(wuzzle, candies)
 
-
+  def train_one(self, X=[], y=1):
+    self.model.train_one(X, y)
 
 
 

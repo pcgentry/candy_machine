@@ -38,7 +38,7 @@ class World():
         # print(wuzzle.name)
         # print(wuzzle.menu)
         # print(self.candies)
-        wuzzle.check_menu(self.candies)
+        wuzzle.check_menu(self.candies, self.machine)
         if wuzzle.nightly_lick_counter > 0:
           self.lick_counter += wuzzle.nightly_lick_counter
           self.nightly_lick_counter += wuzzle.nightly_lick_counter

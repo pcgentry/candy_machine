@@ -2,25 +2,25 @@ from os import path
 import random
 
 from joblib import dump, load
-from river import compose, linear_model, metrics, preprocessing
+from river import compose, tree, metrics, preprocessing
 
 from src.config import WORLD
 
 
 
-class LogisticRegression():
+class DecisionTree():
 
   def __init__(self) -> None:
     ''' Create a persistent model file if there isn't one. If one exists, use it. '''
 
-    self.file_path = 'models/logistic_regression.joblib'
+    self.file_path = 'models/decision_tree.joblib'
 
     if path.exists(self.file_path):
       self.model = load(self.file_path)
     else:
       self.model = compose.Pipeline(
           preprocessing.StandardScaler(),
-          linear_model.LogisticRegression()
+          tree.HoeffdingTreeClassifier(grace_period=50)
       )
       self.save_model()
 
@@ -35,6 +35,9 @@ class LogisticRegression():
 
     return random.choices(wuzzle.potential_candy_ids, k=menu_size)
 
+  def train_one(self, X=[], y=[]):
+    pass
 
+  
   def save_model(self):
     dump(self.model, self.file_path)

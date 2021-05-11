@@ -80,16 +80,27 @@ class Wuzzle():
       return self.potential_candy_ids
 
 
-    def check_menu(self, candies):
+    def get_features(self, candy):
+      # print(self.flavor_preferences)
+      print(candy.flavors)
+      return []
+
+
+    def check_menu(self, candies, machine):
       ''' Go through the menu and decide whether to lick each candy. '''
       self.nightly_lick_counter = 0
       
       for candy_id in self.menu:
-        # print(candy_id)
+        # Pretty sure this is horribly expensive and wasteful way to do this
         for candy in candies:
           # print(candy.uuid)
-          if candy.life == 1:
-            if candy.uuid == candy_id:
+
+          if candy.uuid == candy_id:
+            training_target = 0
+
+            if candy.life == 1:
+
+              # At this point we have the right candy object and at least qualified it as alive
               # print (f"Trying to lick: {candy.name}")
               for flavor in candy.flavors:
                 if flavor in self.flavor_preferences:
@@ -97,6 +108,9 @@ class Wuzzle():
                   if random.uniform(0, 1) > self.flavor_preferences[flavor]:
                     # print(f"LICKS **** {flavor}")
                     self.lick_candy(candy)
+                    training_target = 1
+                    
+            machine.train_one(self.get_features(candy), training_target)
 
 
 
@@ -110,3 +124,5 @@ class Wuzzle():
       self.licked_candy_ids.append(candy.uuid)
       self.lick_counter += 1
       self.nightly_lick_counter += 1
+
+      return 1
