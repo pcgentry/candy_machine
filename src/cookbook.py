@@ -1,8 +1,9 @@
-class Cookbook():
-  ''' Cookbook holds the queue for each model. '''
+"""The Cookbook class."""
 
-  def __init__(self, flavor="vanilla") -> None:
+class Cookbook():
+  """The queue for each model."""
+
+  def __init__(self, flavor="vanilla"):
     self.model_type = "random"
     self.flavor = flavor
     self.candy_ids = []
-    

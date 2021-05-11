@@ -1,18 +1,24 @@
-from src.config import WORLD
+"""The Random class."""
 import random
+from typing import List
+
 from river import metrics
 
+from src.config import WORLD
 
 class Random():
 
-  def __init__(self) -> None:
+  def __init__(self):
     self.accuracy_metric_float = 0.0
     self.accuracy = metrics.Accuracy()
 
     self.include_hunger = True
 
-  def suggest(self, wuzzle, candies=[], menu_size=3) -> list:
-    ''' this implements the random strategy. In theory it should perform badly as it will not be able to tell which candies the wuzzle likes more '''
+  def suggest(self, wuzzle, candies=[], menu_size=3) -> List[int]:
+    """Return a suggestion.
+
+    In theory it should perform badly as it will not be able to tell which candies the wuzzle likes more.
+    """
 
     if WORLD["menu_size"] > len(wuzzle.potential_candy_ids):
       menu_size = len(wuzzle.potential_candy_ids)
@@ -33,5 +39,3 @@ class Random():
 
   def predict(self, X):
     return 1
-
-

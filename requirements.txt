@@ -1,3 +1,4 @@
+# All of these should be pinned!
 jupyterlab
 matplotlib
 numpy
@@ -14,6 +15,6 @@ seaborn
 rl
 tensorflow
 
-## For other icremental learning
+## For other incremental learning
 river
 graphviz

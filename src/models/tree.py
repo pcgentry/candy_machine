@@ -1,5 +1,7 @@
+"""The DecisionTree class."""
 from os import path
 import random
+from typing import List
 
 from joblib import dump, load
 from river import compose, tree, metrics, preprocessing
@@ -10,8 +12,8 @@ from src.config import WORLD
 
 class DecisionTree():
 
-  def __init__(self) -> None:
-    ''' Create a persistent model file if there isn't one. If one exists, use it. '''
+  def __init__(self):
+    """Create a persistent model file if there isn't one. If one exists, use it."""
 
     self.file_path = 'models/decision_tree.joblib'
     self.include_hunger = False
@@ -26,28 +28,30 @@ class DecisionTree():
       self.save_model()
 
 
-  def suggest(self, wuzzle, candies, menu_size=3) -> list:
-    ''' Use this model to make suggestions '''
+  def suggest(self, wuzzle, candies, menu_size=3) -> List[int]:
+    """Return a suggestion."""
 
     if WORLD["menu_size"] > len(wuzzle.potential_candy_ids):
       menu_size = len(wuzzle.potential_candy_ids)
     else:
       menu_size = WORLD["menu_size"]
+
     # return random.choices(wuzzle.potential_candy_ids, k=menu_size)
     suggestions = []
 
     for candy in candies:
       if candy.uuid in wuzzle.potential_candy_ids:
         features = wuzzle.get_features(candy, include_hunger=False)
+
         if self.predict(features) == 1:
           suggestions.append(candy.uuid)
 
     if len(suggestions) > menu_size:
       return random.choices(suggestions, k=menu_size)
-    else:
-      menu_diff = menu_size - len(suggestions)
-      menu_random = random.choices(wuzzle.potential_candy_ids, k=menu_diff)
-      suggestions.extend(menu_random)
+
+    menu_diff = menu_size - len(suggestions)
+    menu_random = random.choices(wuzzle.potential_candy_ids, k=menu_diff)
+    suggestions.extend(menu_random)
 
     return suggestions
 
@@ -58,11 +62,10 @@ class DecisionTree():
 
     self.accuracy_metric_float = self.accuracy.get()
 
-  
+
   def save_model(self):
     dump(self.model, self.file_path)
 
 
   def predict(self, X):
     return self.model.predict_one(X)
-
