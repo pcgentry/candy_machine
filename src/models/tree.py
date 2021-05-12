@@ -24,7 +24,7 @@ class DecisionTree():
     if path.exists(self.file_path):
       self.model = load(self.file_path)
     else:
-      self.model = tree.LabelCombinationHoeffdingTreeClassifier(grace_period=10)
+      self.model = tree.LabelCombinationHoeffdingTreeClassifier()
       self.save_model()
 
 
