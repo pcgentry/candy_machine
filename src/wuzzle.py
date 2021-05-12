@@ -96,6 +96,8 @@ class Wuzzle():
         feature_arr['w_hunger'] = self.hunger
         feature_arr['c_hunger'] = candy.hunger
 
+      # feature_arr['w_uuid'] = self.uuid
+
       # print(feature_arr)
       return feature_arr
 
