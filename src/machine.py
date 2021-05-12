@@ -1,6 +1,7 @@
 """The Machine class."""
 from src.models.random import Random
 from src.models.tree import DecisionTree
+from src.models.bernoulli_nb import BernoulliNB
 
 
 class Machine():
@@ -12,7 +13,12 @@ class Machine():
   def __init__(self, strategy, reward=10, punishment=-100):
     self.strategy = strategy
 
-    self.model = DecisionTree() if strategy == 'decision_tree' else Random()
+    if strategy == 'decision_tree':
+      self.model = DecisionTree() 
+    elif strategy == 'BernoulliNB':
+      self.model = BernoulliNB()
+    else: 
+      self.model = Random()
 
     self.include_hunger = self.model.include_hunger
     self.stats = {}

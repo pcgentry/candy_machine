@@ -4,13 +4,14 @@ from typing import List
 import random
 
 from joblib import dump, load
-from river import tree, metrics
+from river import tree, metrics, compat
+
+from sklearn.naive_bayes import BernoulliNB as BNB
 
 from src.config import WORLD
 
 
-
-class DecisionTree():
+class BernoulliNB():
 
   def __init__(self):
     """Create a persistent model file if there isn't one. If one exists, use it."""
@@ -24,8 +25,16 @@ class DecisionTree():
     if path.exists(self.file_path):
       self.model = load(self.file_path)
     else:
-      self.model = tree.HoeffdingTreeClassifier(
-          grace_period=20)
+      # self.model = compat.convert_sklearn_to_river(
+      #     estimator=MLPClassifier(random_state=1, max_iter=300),
+      #     classes=[0, 1]
+      # )
+
+      self.model = compat.convert_sklearn_to_river(
+          estimator=BNB(binarize=.1),
+          classes=[0, 1]
+      )
+
       self.save_model()
 
 

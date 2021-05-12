@@ -89,7 +89,11 @@ class Wuzzle():
       # print(candy.flavors)
 
       w_flavors = {"w_" + str(key): val for key, val in self.licked_flavor_counter.items()}
-      c_flavors = {"c_" + str(key): val for key, val in candy.flavors.items()}
+      c_flavors = dict.fromkeys(WORLD["flavors"], 0)
+      for key, val in candy.flavors.items():
+        c_flavors[str(key)] = val
+      c_flavors = {"c_" + str(key): val for key, val in c_flavors.items()}
+
       feature_arr = {**w_flavors, **c_flavors}
 
       if include_hunger:
