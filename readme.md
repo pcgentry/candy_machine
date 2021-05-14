@@ -9,7 +9,7 @@ The planet Wuzzlopolis has **two** **big** **problems**.
 
 Traditionally the **Kind King** of Wuzzlopolis would feed each wuzzle by hand based on how much he liked each wuzzle and what the Kind King thought they would like. 
 
-This approach wasn't the best, because the Kind King was only one Wuzzle and had only one perspective. One wuzzle can only do so much, and he could never pay attention to every wuzzle and what they liked to eat... he had to make a lot of generalizations and while doing the best he could, his choices were somewhat arbitrary.
+This approach wasn't the best, because the Kind King was only one Wuzzle and had only one perspective. One wuzzle can only do so much, and he could never pay attention to every wuzzle and what they liked to lick... he had to make a lot of generalizations and while doing the best he could, his choices were somewhat arbitrary.
 
 Still, Wuzzlopolis did O.K. under the Kind King.
 
@@ -23,11 +23,11 @@ We also kinda low-key hope that our machine is better at feeding Wuzzles than th
 
 One interesting thing about CANDY on Wuzzlopolis is that it is alive. 
 
-CANDY individuals also like to be eaten. In fact they need to be eaten because when they aren't, CANDY gets very **depressed and moody** and doesn't enjoy life very much. It also **dies a horrible death** after a few days.
+CANDY individuals also like to be licked. In fact they need to be licked because when they aren't, CANDY gets very **depressed and moody** and doesn't enjoy life very much. It also **dies a horrible death** after a few days.
 
 CANDY comes in many flavors, ranging from **[ 'apple' : 'earwax' ]** and a single CANDY can have multiple flavors (but not always).
 
-Luckily **WUZZLES EAT CANDY**, but are very picky about which flavors of candy they eat.
+Luckily **WUZZLES lick CANDY**, but are very picky about which flavors of candy they lick.
 
 Obviously we must build a machine to distribute CANDY individuals to the wuzzles.
 
@@ -39,12 +39,12 @@ If our machine is smart enough, it will track CANDY individuals and keep them al
 ## Further notes about the rules of Wuzzlopolis environment
 
 
-- Every wuzzle has a set of flavors they can eat, but can't eat other flavors. ['peach', 'tarball', 'toe fuzz']
-- If a wuzzle doesn't eat, it has a chance of SUDDEN DEATH. Every day unfed increases the chance of SUDDEN DEATH.
-- If a CANDY individual isn't eaten for a day, it has a chance of SUDDEN DEATH. Every day unlicked increases the chance of SUDDEN DEATH.
+- Every wuzzle has a set of flavors they can lick, but can't lick other flavors. ['peach', 'tarball', 'toe fuzz']
+- If a wuzzle doesn't lick, it has a chance of SUDDEN DEATH. Every day unfed increases the chance of SUDDEN DEATH.
+- If a CANDY individual isn't licked for a day, it has a chance of SUDDEN DEATH. Every day unlicked increases the chance of SUDDEN DEATH.
 - Every wuzzle has his own CANDY cookbook with lists sorted by CANDY breed where CANDY individuals can be listed. Our machine will pick CANDY individuals based on what CANDY individuals are on each CANDY list.
 - Every wuzzle owns a lunchbox that can have up to 20 CANDY. Our machine will load the lunchbox from the cook book.
-- When we say a wuzzle eats a candy, it actually just **licks** it and tosses it back into the wild. That wuzzle will never lick it again, but other wuzzles can lick the same candy.
+- When we say a wuzzlelicks a candy, it actually just **licks** it and tosses it back into the wild. That wuzzle will never lick it again, but other wuzzles can lick the same candy.
 
 
 # More about the CANDY machine.
@@ -127,7 +127,7 @@ Here is the breakdown of the first training:
 
 ## Let's find out:
 
-It looks like, **yes**, the date for Wuzzlpocalypse is significantly moved up when we use the Decision Tree model. It looks like our tree is reasonably good at feeding wuzzles and letting the gluttonous little buggers eat themselves to death.
+It looks like, **yes**, the date for Wuzzlpocalypse is significantly moved up when we use the Decision Tree model. It looks like our tree is reasonably good at feeding wuzzles and letting the gluttonous little buggerslickthemselves to death.
 
 ![](images/random_nightly_licks.png)
 ![](images/dt_nightly_licks.png)
