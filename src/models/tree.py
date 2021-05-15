@@ -18,7 +18,8 @@ class DecisionTree():
     self.file_path = 'models/decision_tree.joblib'
     self.include_hunger = False
     self.accuracy_metric_float = 0.0
-    self.accuracy = metrics.Accuracy()
+    self.metrics = metrics()
+
 
 
     if path.exists(self.file_path):
@@ -58,7 +59,7 @@ class DecisionTree():
 
   def train_one(self, X, y):
     y_pred = self.model.predict_one(X)
-    self.accuracy = self.accuracy.update(y, y_pred)
+    self.accuracy = self.metrics.update(y, y_pred)
     self.model.learn_one(x=X, y=y)
     self.accuracy_metric_float = self.accuracy.get()
 

@@ -132,6 +132,13 @@ It looks like, **yes**, the date for Wuzzlpocalypse is significantly moved up wh
 ![](images/random_nightly_licks.png)
 ![](images/dt_nightly_licks.png)
 
+## Before moving on, I wanted to add one more model. Bernoulli Naive Bayes. 
+
+Let's see how it did... as you can see, the base model also does better than Random, but not quite as well as the Decision Tree. Mostly the reason I wanted to test this model is that it was a model not native to River, instead coming from scikit learn.
+
+![](images/bnb_nightly_licks.png)
+
+
 ### Accuracy
 
 Another thing we can look at is accuracy over time for each simulation.
@@ -144,12 +151,12 @@ On the other hand the **tree** model quickly trains to an improved accuracy afte
 
 ![](images/random_machine_accuracy.png)
 ![](images/dt_machine_accuracy.png)
+![](images/bnb_machine_accuracy.png)
 
 
 # TODO:
 
 
-- ask ryan what the fundamental difference is, if any between reinforcement learning and incremental learning .. or are they basically the same thing?
 - revisit averages for graphs.. something is wrong there
 - use precision in addition to accuracy
 	- look into other available metrics
