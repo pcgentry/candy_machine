@@ -3,7 +3,6 @@ jupyterlab
 matplotlib
 numpy
 pandas
-tensorflow==2.4.1
 scikit-learn
 faker
 pytest
@@ -13,7 +12,7 @@ seaborn
 
 ## If we ever get to reinforcement learning
 rl
-tensorflow
+# tensorflow
 
 ## For other incremental learning
 river
