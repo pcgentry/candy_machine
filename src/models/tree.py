@@ -18,7 +18,7 @@ class DecisionTree():
     self.file_path = 'models/decision_tree.joblib'
     self.include_hunger = False
     self.accuracy_metric_float = 0.0
-    self.metrics = metrics()
+    self.metrics = metrics.Accuracy()
 
 
 

@@ -4,16 +4,12 @@ matplotlib
 numpy
 pandas
 scikit-learn
-faker
 pytest
-uuid
-faker
+tensorflow
 seaborn
 
-## If we ever get to reinforcement learning
-rl
-# tensorflow
-
-## For other incremental learning
-river
-graphviz
+river==0.7.0
+rl==3.0
+graphviz==0.16
+Faker==8.1.4
+uuid==1.30
