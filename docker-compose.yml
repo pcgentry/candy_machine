@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  web:
+    image: candy_machine
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/home/jovyan/candy_machine
+
+# jupyter/tensorflow-notebook
