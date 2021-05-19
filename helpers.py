@@ -7,6 +7,22 @@ import numpy as np
 from scipy.stats import norm
 from src.simulation import Simulation
 
+def run_strat(
+    strategy="decision_tree", 
+    description="Candy Machine", 
+    num_simulations=5,
+    image_prefix = "images/_"
+    ):
+
+    s = Simulation(strategy=strategy)
+    simulations = []
+
+    for i in range(num_simulations):
+        simulations.append(Simulation(strategy=strategy))
+
+    nights_df = pd.DataFrame(s.nightly_stats)
+    nrml_dist_points = skull_chart(simulations, description, image_prefix)
+
 
 def skull_chart(simulations, strategy_human, image_prefix):
 

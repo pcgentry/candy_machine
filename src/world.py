@@ -21,7 +21,8 @@ class World():
     self.reward = 10
     self.punishment = -100
 
-    self.hunger_rate = float(self.config["hunger_rate"])
+    self.wuzzle_hunger_rate = float(self.config["wuzzle_hunger_rate"])
+    self.candy_hunger_rate = float(self.config["candy_hunger_rate"])
     self.machine = Machine(reward=self.reward, punishment=self.punishment, strategy=strategy)
     self.generate_wuzzles()
     self.generate_candies()
@@ -53,13 +54,13 @@ class World():
     self.wuzzles_eat_dinner()
 
     for candy in self.candies:
-      candy.hunger += self.hunger_rate
-      if candy.hunger >= self.config['hunger_death']:
+      candy.hunger += self.candy_hunger_rate
+      if candy.hunger >= self.config['candy_hunger_death']:
         candy.life = 0
     
     for wuzzle in self.wuzzles:
-      wuzzle.hunger += self.hunger_rate
-      if wuzzle.hunger >= self.config['hunger_death']:
+      wuzzle.hunger += self.wuzzle_hunger_rate
+      if wuzzle.hunger >= self.config['wuzzle_hunger_death']:
         wuzzle.life = 0
     
     self.nights += 1
