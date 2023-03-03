@@ -1,7 +1,6 @@
 """The World Class."""
 from src.candy import Candy
 from src.config import WORLD
-from src.machine import Machine
 from src.wuzzle import Wuzzle
 
 
@@ -10,7 +9,7 @@ class World():
   and history gets written.
   '''
 
-  def __init__(self, strategy="random") -> None:
+  def __init__(self, machine_object) -> None:
     self.config = WORLD
     self.initial_wuzzle_population = self.config["initial_wuzzle_population"]
     self.initial_candy_population =  self.config["initial_candy_population"]
@@ -18,12 +17,13 @@ class World():
     self.lick_counter = 0
     self.nightly_lick_counter = 0
 
-    self.reward = 10
-    self.punishment = -100
+    # self.reward = 10
+    # self.punishment = -100
+
+    self.machine = machine_object
 
     self.wuzzle_hunger_rate = float(self.config["wuzzle_hunger_rate"])
     self.candy_hunger_rate = float(self.config["candy_hunger_rate"])
-    self.machine = Machine(reward=self.reward, punishment=self.punishment, strategy=strategy)
     self.generate_wuzzles()
     self.generate_candies()
 

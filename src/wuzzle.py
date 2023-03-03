@@ -113,11 +113,11 @@ class Wuzzle():
         for candy in candies:
           if candy.uuid == candy_id:
             self.seen_candy_ids.append(candy.uuid)
-            if self.evaluate_candy(candy, machine):
+            if self.consider_candy(candy, machine):
               self.lick_candy(candy, flavor)
 
 
-    def evaluate_candy(self, candy, machine, train=False):
+    def consider_candy(self, candy, machine, train=False):
       """ given a candy, is it lickable? """
       training_target = 0
       if candy.life == 1:
@@ -128,6 +128,7 @@ class Wuzzle():
               training_target = 1
                 
         if train:
+          # print("training")
           machine.train_one(self.get_features(candy, include_hunger=machine.include_hunger), training_target)
 
     def lick_candy(self, candy, flavor):

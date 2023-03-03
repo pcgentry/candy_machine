@@ -3,10 +3,12 @@ from src.world import World
 
 
 class Simulation():
-    """Contains and operates on the world."""
+    """Contains and operates on the world.
+
+    Has to be passed a machine object so that we can share a single Machine across sims."""
     
-    def __init__(self, max_nights=1000, strategy="random"):
-        Wuzzlopolis = World(strategy = strategy)
+    def __init__(self, machine_object, max_nights=1000):
+        Wuzzlopolis = World(machine_object=machine_object)
 
         self.world_objects = Wuzzlopolis.objects_report()
         self.nightly_stats = []

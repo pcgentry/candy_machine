@@ -22,6 +22,7 @@ class Machine():
 
     self.include_hunger = self.model.include_hunger
     self.stats = {}
+    self.saves = 0
 
 
   def recommend_for_wuzzle(self, wuzzle, candies, menu_size=3):
@@ -33,11 +34,12 @@ class Machine():
     wuzzle.menu = self.model.suggest(wuzzle, candies)
 
 
-  def train_one(self, X=[], y=1):
-    self.model.train_one(X, y)
+  # def train_one(self, X=[], y=1):
+  #   self.model.train_one(X, y)
 
   def save_model(self):
     self.model.save_model()
+    self.saves += 1
 
   def report_accuracy(self):
     return self.model.accuracy_metric_float

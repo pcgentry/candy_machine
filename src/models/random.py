@@ -11,7 +11,7 @@ class Random():
   def __init__(self):
     self.accuracy_metric_float = 0.0
     self.accuracy = metrics.Accuracy()
-
+    self.trainings = 0
     self.include_hunger = True
 
   def suggest(self, wuzzle, candies=[], menu_size=3) -> List[int]:
@@ -28,6 +28,7 @@ class Random():
     return random.choices(wuzzle.potential_candy_ids, k=menu_size)
 
   def train_one(self, X=[], y=[]):
+    self.trainings += 1
     pass
 
   def train_one(self, X=[], y=[]):
