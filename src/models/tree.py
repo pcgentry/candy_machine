@@ -12,17 +12,18 @@ from src.config import WORLD
 
 class DecisionTree():
 
-  def __init__(self):
+  def __init__(self, load_from_file=False):
     """Create a persistent model file if there isn't one. If one exists, use it."""
 
     self.file_path = 'models/decision_tree.joblib'
     self.include_hunger = False
     self.accuracy_metric_float = 0.0
     self.metrics = metrics.Accuracy()
+    self.trainings = 0
 
 
 
-    if path.exists(self.file_path):
+    if load_from_file and path.exists(self.file_path):
       self.model = load(self.file_path)
     else:
       self.model = tree.HoeffdingTreeClassifier(
@@ -45,14 +46,27 @@ class DecisionTree():
       if candy.uuid in wuzzle.potential_candy_ids:
         features = wuzzle.get_features(candy, include_hunger=False)
 
-        if self.predict(features) == 1: suggestions.append(candy.uuid)
+        if self.predict(features) == 1: 
+          suggestions.append(candy.uuid)
+
+          # learn_one
+          wuzzle.consider_candy(candy, self, train=True)
+
 
     if len(suggestions) > menu_size:
+      """ We have results, return a random set of them """
       return random.choices(suggestions, k=menu_size)
 
     menu_diff = menu_size - len(suggestions)
     menu_random = random.choices(wuzzle.potential_candy_ids, k=menu_diff)
     suggestions.extend(menu_random)
+
+
+    # Learning loop
+    for predicted_candy in suggestions:
+      for candy in candies:
+        if candy.uuid == predicted_candy:
+          wuzzle.consider_candy(candy, self, train=True)
 
     return suggestions
 
@@ -62,6 +76,8 @@ class DecisionTree():
     self.accuracy = self.metrics.update(y, y_pred)
     self.model.learn_one(x=X, y=y)
     self.accuracy_metric_float = self.accuracy.get()
+
+    self.trainings += 1
 
 
   def save_model(self):

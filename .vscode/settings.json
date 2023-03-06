@@ -1,3 +1,4 @@
 {
-  "python.pythonPath": "/Users/phil/.pyenv/versions/3.9.1/bin/python"
+  "python.pythonPath": "/Users/phil/.pyenv/versions/3.9.1/bin/python",
+  "jupyter.jupyterServerType": "remote"
 }

@@ -30,6 +30,7 @@ class Wuzzle():
       self.generate_flavor_preferences()
       self.generate_cookbooks()
       
+      self.seen_candy_ids = []
       self.licked_candy_ids = []
       self.potential_candy_ids = []
       self.menu = []
@@ -79,14 +80,14 @@ class Wuzzle():
 
       for candy in candies:
         if not candy.uuid in self.licked_candy_ids:
-          self.potential_candy_ids.append(candy.uuid)
+          if not candy.uuid in self.seen_candy_ids:
+            self.potential_candy_ids.append(candy.uuid)
           
       return self.potential_candy_ids
 
 
     def get_features(self, candy, include_hunger=True):
-      # print(self.flavor_preferences)
-      # print(candy.flavors)
+      """ Fetch the features for the wuzzle and candy for training/prediction """
 
       w_flavors = {"w_" + str(key): val for key, val in self.licked_flavor_counter.items()}
       c_flavors = dict.fromkeys(WORLD["flavors"], 0)
@@ -100,39 +101,35 @@ class Wuzzle():
         feature_arr['w_hunger'] = self.hunger
         feature_arr['c_hunger'] = candy.hunger
 
-      # feature_arr['w_uuid'] = self.uuid
-
-      # print(feature_arr)
       return feature_arr
 
 
     def check_menu(self, candies, machine):
-      ''' Go through the menu and decide whether to lick each candy. '''
+      """Go through the menu and decide whether to lick each candy."""
       self.nightly_lick_counter = 0
       
       for candy_id in self.menu:
         # Pretty sure this is horribly expensive and wasteful way to do this
         for candy in candies:
-          # print(candy.uuid)
-
           if candy.uuid == candy_id:
-            training_target = 0
-
-            if candy.life == 1:
-
-              # At this point we have the right candy object and at least qualified it as alive
-              # print (f"Trying to lick: {candy.name}")
-              for flavor in candy.flavors:
-                if flavor in self.flavor_preferences:
-                  # print(f"likes {flavor}")
-                  if random.uniform(0, 1) > self.flavor_preferences[flavor]:
-                    # print(f"LICKS **** {flavor}")
-                    self.lick_candy(candy, flavor)
-                    training_target = 1
-                    
-            machine.train_one(self.get_features(candy, include_hunger=machine.include_hunger), training_target)
+            self.seen_candy_ids.append(candy.uuid)
+            if self.consider_candy(candy, machine):
+              self.lick_candy(candy, flavor)
 
 
+    def consider_candy(self, candy, machine, train=False):
+      """ given a candy, is it lickable? """
+      training_target = 0
+      if candy.life == 1:
+        for flavor in candy.flavors:
+          if flavor in self.flavor_preferences:
+            if random.uniform(0, 1) > self.flavor_preferences[flavor]:
+              self.lick_candy(candy, flavor)
+              training_target = 1
+                
+        if train:
+          # print("training")
+          machine.train_one(self.get_features(candy, include_hunger=machine.include_hunger), training_target)
 
     def lick_candy(self, candy, flavor):
       ''' Licking a candy means we have considered the Candy and decided to lick it. 
