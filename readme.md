@@ -4,8 +4,10 @@ Welcome to the CANDY machine, a **reinforcement learning system** to solve an ec
 
 
 
+Read the docs:
+[Documentation](./docs/index.md)
 
-[Premise](./docs/premise.md)
+
 
 
 # The Problem Set

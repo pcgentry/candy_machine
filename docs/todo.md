@@ -1,5 +1,5 @@
-
 # TODO:
+[Document Home](./index.md)
 
 
 - revisit averages for graphs.. something is wrong there
