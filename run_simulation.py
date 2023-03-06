@@ -1,8 +1,8 @@
-#!./bin/python
+  #!./bin/python
 
 from src.world import World
 
-nights = 1000
+nights = 100
 Wuzzlopolis = World()
 
 print(Wuzzlopolis.text_report())
