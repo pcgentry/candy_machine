@@ -1,4 +1,6 @@
 # Modeling
+[Document Home](./index.md)
+
 
 ## Implementation of Random
 
