@@ -10,7 +10,7 @@ class Machine():
   It uses the Wuzzles internal cookbook and menu attributes to make decisions.
   """
 
-  def __init__(self, strategy, reward=10, punishment=-100):
+  def __init__(self, strategy='random', reward=10, punishment=-100):
     self.strategy = strategy
 
     if strategy == 'decision_tree':
@@ -33,9 +33,6 @@ class Machine():
 
     wuzzle.menu = self.model.suggest(wuzzle, candies)
 
-
-  # def train_one(self, X=[], y=1):
-  #   self.model.train_one(X, y)
 
   def save_model(self):
     self.model.save_model()

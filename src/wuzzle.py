@@ -8,6 +8,8 @@ import numpy as np
 from src.config import FAKER, WORLD
 from src.cookbook import Cookbook
 
+def list_to_strings(my_list):
+    return [str(x) for x in my_list]
 
 class Wuzzle():
     """Creates a wuzzle critter to eat CANDY. 
@@ -15,7 +17,7 @@ class Wuzzle():
     In the grand scheme of things, Wuzzles are actually simulated human consumers. The flavor preferences they have 
     would not exist in our data set. It is the job of the Candy Machine to figure out what types of candy each Wuzzle likes best.
 
-    The flavor preferences they have are actually the output of different models that would be making recommendations.
+    The flavor preferences are prefences for candy flavors. We use these to predict what candy the Wuzzle can eat.
     """
     def __init__(self):
       self.life = 1
@@ -35,6 +37,24 @@ class Wuzzle():
       self.potential_candy_ids = []
       self.menu = []
 
+
+
+    def to_dict(self):
+        return {
+            'life': self.life,
+            'hunger': self.hunger,
+            'lick_counter': self.lick_counter,
+            'nightly_lick_counter': self.nightly_lick_counter,
+            'licked_flavor_counter': self.licked_flavor_counter,
+            'uuid': str(self.uuid),
+            'name': self.name,
+            'flavor_preferences': self.flavor_preferences,
+            'cookbooks': list_to_strings(self.cookbooks),
+            'seen_candy_ids': list_to_strings(self.seen_candy_ids),
+            'licked_candy_ids': list_to_strings(self.licked_candy_ids),
+            'potential_candy_ids': list_to_strings(self.potential_candy_ids),
+            'menu': list_to_strings(self.menu),
+        }
 
     def __repr__(self) -> str:
         return self.name
@@ -117,7 +137,7 @@ class Wuzzle():
               self.lick_candy(candy, flavor)
 
 
-    def consider_candy(self, candy, machine, train=False):
+    def consider_candy(self, candy, machine):
       """ given a candy, is it lickable? """
       training_target = 0
       if candy.life == 1:
@@ -126,10 +146,6 @@ class Wuzzle():
             if random.uniform(0, 1) > self.flavor_preferences[flavor]:
               self.lick_candy(candy, flavor)
               training_target = 1
-                
-        if train:
-          # print("training")
-          machine.train_one(self.get_features(candy, include_hunger=machine.include_hunger), training_target)
 
     def lick_candy(self, candy, flavor):
       ''' Licking a candy means we have considered the Candy and decided to lick it. 

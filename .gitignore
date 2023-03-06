@@ -6,3 +6,5 @@ __pycache__/*
 
 *.pyc
 **/*.pyc
+
+simulation_outputs/*

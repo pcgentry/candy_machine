@@ -5,7 +5,7 @@ import numpy as np
 FAKER = Faker()
 
 WORLD = {
-  "flavors": np.array(['apple', 'toenail', 'earwax']),
+  "flavors": np.array(['apple', 'toenail', 'earwax', 'cheese']),
   "wuzzle_hunger_death": 75,
   "wuzzle_hunger_rate": 25,
   "candy_hunger_death": 100,

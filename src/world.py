@@ -3,6 +3,8 @@ from src.candy import Candy
 from src.config import WORLD
 from src.wuzzle import Wuzzle
 
+def list_to_strings(my_list):
+    return [str(x) for x in my_list]
 
 class World():
   ''' The World object is what contains all the other things in Wuzzlopolis. Wuzzles, Candies, Candy Machines... etc.  This is where days become nights, 
@@ -86,18 +88,17 @@ class World():
     w_report = {}
     w_list = []
     c_list = []
-    f_list = []
+    f_list = list_to_strings(self.config["flavors"])
 
     for wuzzle in self.wuzzles:
-      w_list.append(wuzzle.name)
+      w_list.append(wuzzle.to_dict())
 
     for candy in self.candies:
-      c_list.append(candy.name)
+      c_list.append(candy.to_dict())
 
     w_report["wuzzles"] = w_list
     w_report["candies"] = c_list
-    w_report["flavors"] = self.config["flavors"]
-    
+    w_report["flavors"] = f_list
 
     return w_report
 

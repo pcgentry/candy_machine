@@ -25,6 +25,15 @@ class Candy():
     self.num_flavors = random.randint(1, len(flavors.flavors))
     self.flavors = flavors.make_flavors(self.num_flavors)
 
+  def to_dict(self):
+      return {
+          'life': self.life,
+          'hunger': self.hunger,
+          'name': self.name,
+          'uuid': str(self.uuid),
+          'num_flavors': self.num_flavors,
+          'flavors': self.flavors
+      }
 
   def __repr__(self) -> str:
-    return self.name
+    return self.uuid

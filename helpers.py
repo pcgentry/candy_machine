@@ -24,7 +24,7 @@ def run_strat(
 
     nights_df = pd.DataFrame(s.nightly_stats)
     # skull_chart(simulations, description, image_prefix)
-    skull_hist(simulations, description, image_prefix, x_lims)
+    # skull_hist(simulations, description, image_prefix, x_lims)
 
     return simulations, nights_df
 

@@ -50,7 +50,7 @@ class DecisionTree():
           suggestions.append(candy.uuid)
 
           # learn_one
-          wuzzle.consider_candy(candy, self, train=True)
+          wuzzle.consider_candy(candy, self)
 
 
     if len(suggestions) > menu_size:
@@ -66,7 +66,7 @@ class DecisionTree():
     for predicted_candy in suggestions:
       for candy in candies:
         if candy.uuid == predicted_candy:
-          wuzzle.consider_candy(candy, self, train=True)
+          wuzzle.consider_candy(candy, self)
 
     return suggestions
 

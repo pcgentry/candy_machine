@@ -1,7 +1,6 @@
 """The Flavor class."""
 import random
 from typing import Dict
-
 import numpy as np
 
 from src.config import WORLD
